@@ -21,6 +21,14 @@
 		"lint:prettier": "prettier --check --ignore-path .gitignore .",
 		"lint:typescript": "tsc"
 	},
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown",
+    "*.{ts,tsx,js,jsx}": "eslint --fix"
+  },
+	"browserslist": [
+		"defaults",
+		"not IE 11"
+	],
 	"dependencies": {
 		"@mdx-js/mdx": "^1.6.22",
 		"@mdx-js/react": "^1.6.22",
