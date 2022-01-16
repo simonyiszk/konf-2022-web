@@ -57,5 +57,8 @@ module.exports = {
 				enableWebVitalsTracking: true,
 			},
 		},
+
+		/** Redirects in gatsby-node.js */
+		`gatsby-plugin-meta-redirect`, // make sure to put last in the array
 	],
 };
