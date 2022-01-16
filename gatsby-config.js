@@ -11,12 +11,12 @@ module.exports = {
 	siteMetadata,
 	plugins: [
 		/** Contentful types */
-		{
-			resolve: `gatsby-plugin-typegen`,
-			options: {
-				outputPath: `src/@types/__generated__/gatsby-types.ts`,
-			},
-		},
+		// {
+		// 	resolve: `gatsby-plugin-typegen`,
+		// 	options: {
+		// 		outputPath: `src/@types/__generated__/gatsby-types.ts`,
+		// 	},
+		// },
 
 		/** React Helmet */
 		`gatsby-plugin-react-helmet`,
