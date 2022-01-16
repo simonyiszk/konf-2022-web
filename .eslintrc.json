@@ -1,0 +1,76 @@
+{
+	"root": true,
+	"env": {
+		"browser": true
+	},
+	"parserOptions": {
+		"project": "./tsconfig.json"
+	},
+	"extends": [
+		"airbnb",
+		"airbnb-typescript",
+		"airbnb/hooks",
+		"react-app",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:eslint-comments/recommended",
+		"plugin:etc/recommended",
+		"plugin:react-etc/recommended",
+		"prettier",
+		"prettier/prettier"
+	],
+	"plugins": ["simple-import-sort"],
+	"rules": {
+		/* Auto-sort imports and exports */
+		"sort-imports": "off",
+		"import/order": "off",
+		"simple-import-sort/imports": "error",
+		"simple-import-sort/exports": "error",
+
+		/* Custom preferences */
+		"@typescript-eslint/array-type": "error",
+		"@typescript-eslint/consistent-indexed-object-style": [
+			"error",
+			"index-signature" // Prevent ambiguity with Records & Tuples
+		],
+		"@typescript-eslint/consistent-type-assertions": "error",
+		"@typescript-eslint/explicit-module-boundary-types": "off", // Reduce bloat
+		"@typescript-eslint/method-signature-style": "error", // Force type safety
+		"@typescript-eslint/no-invalid-void-type": "error", // Force type safety
+		"@typescript-eslint/prefer-ts-expect-error": "error", // Force type safety
+		"import/no-anonymous-default-export": "error", // For named React components
+		"import/no-default-export": "error", // Default exports are confusing
+		"import/prefer-default-export": "off",
+		"import/extensions": "off",
+		"jsx-a11y/anchor-is-valid": "off", // Doesn't play well with Next `<Link>`
+		"prefer-exponentiation-operator": "error", // Auto-fix for an inherited rule
+		// "react/react-in-jsx-scope": "off", // React is always in scope with Next
+		"react/require-default-props": "off", // React `defaultProps` are deprecated
+
+		"react/jsx-no-target-blank": "off", // Links on the site should be safe
+		"no-plusplus": "off"
+	},
+
+	"overrides": [
+		{
+			"files": ["*.js"],
+			"rules": {
+				"@typescript-eslint/no-var-requires": "off", // Allow CommonJS imports
+				"global-require": "off" // Allow dynamic imports for Node
+			}
+		},
+		{
+			"files": ["*.tsx"],
+			"rules": {
+				"@typescript-eslint/consistent-type-definitions": ["error", "type"],
+				"react/jsx-props-no-spreading": "off" // TypeScript makes this safe
+			}
+		},
+		{
+			"files": ["./src/pages/**"],
+			"rules": {
+				"import/no-default-export": "off",
+				"import/prefer-default-export": "error"
+			}
+		}
+	]
+}

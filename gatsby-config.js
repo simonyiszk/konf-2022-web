@@ -1,9 +1,7 @@
 module.exports = {
-    siteMetadata: {
-      title: `konf-2022-web_2`,
-        siteUrl: `https://www.yourdomain.tld`,
-    },
-    plugins: [
-
-    ]
-}
+	siteMetadata: {
+		title: `XIX. Simonyi Konferencia`,
+		siteUrl: `https://konferencia.simonyi.bme.hu`,
+	},
+	plugins: ["gatsby-plugin-postcss"],
+};
