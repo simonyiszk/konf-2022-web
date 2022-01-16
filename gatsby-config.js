@@ -55,9 +55,6 @@ module.exports = {
 
 				/// Defaults to false
 				enableWebVitalsTracking: true,
-
-				/// Defaults to https://www.googletagmanager.com
-				selfHostedOrigin: "https://konferencia.simonyi.bme.hu",
 			},
 		},
 	],
