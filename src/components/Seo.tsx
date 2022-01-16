@@ -35,14 +35,16 @@ export function Seo({ description, lang = "hu", meta = [], title }: SeoProps) {
 	);
 
 	const metaDescription =
-		description ?? site?.siteMetadata?.description ?? "schdesign";
+		description ??
+		site?.siteMetadata?.description ??
+		"XIX. Simonyi Konferencia";
 	const defaultTitle = site?.siteMetadata?.title
 		? `${site.siteMetadata.title} | %s`
-		: "schdesign";
+		: "XIX. Simonyi Konferencia";
 	const previewImage =
 		site?.siteMetadata?.image && site?.siteMetadata?.siteUrl
 			? `${site?.siteMetadata?.siteUrl}${site?.siteMetadata?.image}`
-			: "https://schdesign.hu/preview.png";
+			: "https://konferencia.simonyi.bme.hu/preview.png";
 
 	return (
 		<Helmet

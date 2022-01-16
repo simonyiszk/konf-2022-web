@@ -10,11 +10,12 @@
 		"airbnb",
 		"airbnb-typescript",
 		"airbnb/hooks",
-		"react-app",
 		"plugin:@typescript-eslint/recommended",
 		"plugin:eslint-comments/recommended",
 		"plugin:etc/recommended",
+		"plugin:react/jsx-runtime",
 		"plugin:react-etc/recommended",
+		"plugin:tailwindcss/recommended",
 		"prettier",
 		"prettier/prettier"
 	],

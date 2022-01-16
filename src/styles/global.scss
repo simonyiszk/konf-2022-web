@@ -1,0 +1,15 @@
+:root {
+	color-scheme: dark light;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	@apply text-stone-50;
+	@apply bg-gray-900;
+	@apply min-h-screen;
+
+	margin: 0 auto;
+}

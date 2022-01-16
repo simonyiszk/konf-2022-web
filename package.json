@@ -7,10 +7,19 @@
 	"author": "AndrisBorbas",
 	"scripts": {
 		"develop": "gatsby develop",
-		"start": "gatsby develop",
+		"dev": "gatsby develop",
+		"start": "gatsby serve",
 		"build": "gatsby build",
 		"serve": "gatsby serve",
-		"clean": "gatsby clean"
+		"clean": "gatsby clean",
+		"prepare": "husky install",
+		"fix": "run-s fix:*",
+		"fix:eslint": "npm run lint:eslint -- --fix",
+		"fix:prettier": "npm run lint:prettier -- --write",
+		"lint": "run-p lint:*",
+		"lint:eslint": "eslint --ext .ts,.tsx,.js,.jsx --ignore-path .gitignore .",
+		"lint:prettier": "prettier --check --ignore-path .gitignore .",
+		"lint:typescript": "tsc"
 	},
 	"dependencies": {
 		"@mdx-js/mdx": "^1.6.22",
@@ -64,11 +73,11 @@
 		"eslint-plugin-react-etc": "^2.0.0",
 		"eslint-plugin-react-hooks": "^4.3.0",
 		"eslint-plugin-simple-import-sort": "^7.0.0",
+		"eslint-plugin-tailwindcss": "^3.2.0",
 		"gatsby-plugin-tsconfig-paths": "^1.0.5",
 		"husky": "^7.0.4",
 		"lint-staged": "^12.1.7",
 		"prettier": "^2.5.1",
-		"prettier-plugin-tailwind": "^2.2.12",
 		"typescript": "^4.5.4",
 		"typescript-plugin-css-modules": "^3.4.0"
 	}
