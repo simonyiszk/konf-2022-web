@@ -53,6 +53,20 @@ export function Seo({ description, lang = "hu", meta = [], title }: SeoProps) {
 			}}
 			title={title}
 			titleTemplate={defaultTitle}
+			link={[
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "/favicon.png",
+					sizes: "64x64",
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "/favicon-large.png",
+					sizes: "256x256",
+				},
+			]}
 			meta={[
 				{
 					name: `description`,
