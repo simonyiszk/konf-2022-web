@@ -1,0 +1,39 @@
+.title {
+	grid-template-columns: auto auto;
+}
+
+.date {
+	grid-template-columns: auto max-content auto;
+}
+
+.bg {
+	// background: linear-gradient(to bottom, transparent, #d0eaeb);
+	@apply relative;
+	@apply bg-primary-200;
+
+	@supports (mix-blend-mode: color-dodge) {
+		&::before {
+			content: "";
+			@apply absolute inset-0;
+			mix-blend-mode: color-dodge;
+			background-repeat: repeat;
+			background-position: right top;
+			background-image: linear-gradient(
+					to bottom,
+					rgba(9, 22, 95, 0.212),
+					black 20%
+				),
+				image-set(url("/assets/images/stars.png") 1x);
+			@supports (
+				background-image: image-set(url("/assets/images/stars.webp") 1x)
+			) {
+				background-image: linear-gradient(
+						to bottom,
+						rgba(9, 22, 95, 0.212),
+						black 20%
+					),
+					image-set(url("/assets/images/stars.webp") 1x);
+			}
+		}
+	}
+}

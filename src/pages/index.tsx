@@ -1,14 +1,14 @@
 import * as React from "react";
 
+import { Hero } from "@/components/hero/Hero";
 import { Layout } from "@/components/Layout";
 import { Seo } from "@/components/Seo";
-import { Teaser } from "@/components/teaser/Teaser";
 
 export default function IndexPage() {
 	return (
 		<Layout>
-			<Seo title="Hamarosan..." />
-			<Teaser />
+			<Seo title="2022.04.27." />
+			<Hero />
 		</Layout>
 	);
 }

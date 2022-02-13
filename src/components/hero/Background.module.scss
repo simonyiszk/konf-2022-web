@@ -1,0 +1,10 @@
+.ground {
+	@apply w-auto h-20;
+	background-image: url("/assets/images/Föld3.svg");
+	background-repeat: repeat-x;
+	background-size: auto 5rem;
+}
+
+.flip {
+	transform: scale(-1, 1);
+}

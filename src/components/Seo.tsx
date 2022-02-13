@@ -60,7 +60,7 @@ export function Seo({ description, lang = "hu", meta = [], title }: SeoProps) {
 				},
 				{
 					property: `og:title`,
-					content: title,
+					content: `${defaultTitle} | ${title}`,
 				},
 				{
 					property: `og:description`,
@@ -80,7 +80,7 @@ export function Seo({ description, lang = "hu", meta = [], title }: SeoProps) {
 				},
 				{
 					name: `twitter:title`,
-					content: title,
+					content: `${defaultTitle} | ${title}`,
 				},
 				{
 					name: `twitter:description`,
