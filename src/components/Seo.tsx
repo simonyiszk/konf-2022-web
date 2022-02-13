@@ -39,7 +39,7 @@ export function Seo({ description, lang = "hu", meta = [], title }: SeoProps) {
 		site?.siteMetadata?.description ??
 		"XIX. Simonyi Konferencia";
 	const defaultTitle = site?.siteMetadata?.title
-		? `${site.siteMetadata.title} | %s`
+		? `${site.siteMetadata.title}`
 		: "XIX. Simonyi Konferencia";
 	const previewImage =
 		site?.siteMetadata?.image && site?.siteMetadata?.siteUrl
