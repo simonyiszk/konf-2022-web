@@ -86,7 +86,7 @@ export function Hero() {
 					</div>
 				</div>
 				<div className="flex flex-row justify-evenly mt-4 w-full">
-					<motion.a
+					{/* <motion.a
 						className="block relative p-2 mx-4 hover:brightness-75"
 						href="https://facebook.com/schdesignbme"
 						target="_blank"
@@ -97,7 +97,7 @@ export function Hero() {
 						initial={{ opacity: 0, left: -50 }}
 					>
 						<BsFacebook className="w-8 h-auto sm:w-10 lg:w-12" />
-					</motion.a>
+					</motion.a> */}
 					<motion.a
 						className="block relative p-2 mx-4 hover:brightness-75"
 						href="https://instagram.com/simonyikonf"
