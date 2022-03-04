@@ -8,3 +8,53 @@
 .flip {
 	transform: scale(-1, 1);
 }
+
+.marquee1 {
+	animation: marquee1 33s linear infinite;
+	animation-delay: -7s;
+	@keyframes marquee1 {
+		0% {
+			transform: translate(calc(-55vw + -219px), 0);
+		}
+		100% {
+			transform: translate(calc(55vw), 0);
+		}
+	}
+}
+
+.marquee2 {
+	animation: marquee2 45s linear infinite;
+	@keyframes marquee2 {
+		0% {
+			transform: translate(calc(-5rem + -219px), 0);
+		}
+		100% {
+			transform: translate(100vw, 0);
+		}
+	}
+}
+
+.marquee3 {
+	animation: marquee3 69s linear infinite;
+	animation-delay: -10s;
+	@keyframes marquee3 {
+		100% {
+			transform: translate(calc(-40vw + -219px), 0);
+		}
+		0% {
+			transform: translate(calc(70vw + 219px), 0);
+		}
+	}
+}
+
+.marquee4 {
+	animation: marquee4 30s linear infinite;
+	@keyframes marquee4 {
+		100% {
+			transform: translate(calc(-111vw + -219px), 0);
+		}
+		0% {
+			transform: translate(calc(11rem + 219px + 11rem), 0);
+		}
+	}
+}

@@ -9,6 +9,7 @@ import * as styles from "./Hero.module.scss";
 export function Hero() {
 	return (
 		<div className={clsx(styles.bg)}>
+			<span className="" />
 			<Background />
 			<div className="flex relative flex-col justify-center items-center mx-auto w-fit h-screen font-dongle font-bold text-primary border-primary">
 				<h1

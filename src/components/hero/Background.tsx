@@ -67,17 +67,27 @@ export function Background() {
 				<img className="max-h-[70px]" src="/assets/images/Macska1.svg" alt="" />
 			</div>
 
-			<div className="absolute top-0 left-1/2">
-				<img className="" src="/assets/images/Felhő5.svg" alt="" />
-			</div>
-			<div className="hidden absolute top-20 left-20 md:block">
-				<img className="" src="/assets/images/Felhő5.svg" alt="" />
-			</div>
-			<div className="hidden absolute -top-4 left-1/3 md:block">
-				<img className="" src="/assets/images/Felhő2.svg" alt="" />
-			</div>
-			<div className="absolute top-44 right-44">
+			<div className={clsx(styles.marquee4, "absolute top-44 right-44")}>
 				<img className="" src="/assets/images/Felhő4.svg" alt="" />
+			</div>
+			<div
+				className={clsx(
+					styles.marquee2,
+					"hidden absolute top-20 left-20 md:block",
+				)}
+			>
+				<img className="" src="/assets/images/Felhő5.svg" alt="" />
+			</div>
+			<div className={clsx(styles.marquee1, "absolute top-0 left-1/2")}>
+				<img className="" src="/assets/images/Felhő5.svg" alt="" />
+			</div>
+			<div
+				className={clsx(
+					styles.marquee3,
+					"hidden absolute -top-4 left-1/3 md:block",
+				)}
+			>
+				<img className="" src="/assets/images/Felhő2.svg" alt="" />
 			</div>
 		</div>
 	);
