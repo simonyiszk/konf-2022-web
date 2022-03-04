@@ -6,6 +6,13 @@
 	grid-template-columns: auto max-content auto;
 }
 
+.heroContainer {
+	pointer-events: none;
+	& * {
+		pointer-events: auto;
+	}
+}
+
 .bg {
 	// background: linear-gradient(to bottom, transparent, #d0eaeb);
 	@apply bg-primary-200;

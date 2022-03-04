@@ -2,9 +2,16 @@ import clsx from "clsx";
 import { motion } from "framer-motion";
 import * as React from "react";
 
+import Macska1 from "@/assets/svg/Macska1.inline.svg";
+
 import * as styles from "./Background.module.scss";
 
-export function Background() {
+export type BackgroundProps = {
+	count: number;
+	setCount: (c: number) => void;
+};
+
+export function Background({ count, setCount }: BackgroundProps) {
 	return (
 		<div
 			aria-hidden
@@ -63,8 +70,21 @@ export function Background() {
 				/>
 			</div>
 
-			<div className="absolute bottom-[80px] left-1/3 w-1/6">
-				<img className="max-h-[70px]" src="/assets/images/Macska1.svg" alt="" />
+			<div
+				className={clsx(
+					"absolute bottom-[80px] left-1/3 w-1/6",
+					count < 10 ? "text-[#f07e46]" : "text-[#6abd51]",
+				)}
+			>
+				{/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
+				<Macska1
+					className={clsx("max-h-[70px]")}
+					style={{ opacity: 1 - count * 0.1 > 0 ? 1 - count * 0.1 : 1 }}
+					alt=""
+					onClick={() => {
+						setCount(count + 1);
+					}}
+				/>
 			</div>
 
 			<div className={clsx(styles.marquee4, "absolute top-44 right-44")}>

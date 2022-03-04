@@ -7,11 +7,17 @@ import { Background } from "./Background";
 import * as styles from "./Hero.module.scss";
 
 export function Hero() {
+	const [count, setCount] = React.useState(0);
 	return (
 		<div className={clsx(styles.bg)}>
 			<span className="" />
-			<Background />
-			<div className="flex relative flex-col justify-center items-center mx-auto w-fit h-screen font-dongle font-bold text-primary border-primary">
+			<Background setCount={setCount} count={count} />
+			<div
+				className={clsx(
+					styles.heroContainer,
+					"flex relative flex-col justify-center items-center mx-auto w-fit h-screen font-dongle font-bold text-primary border-primary",
+				)}
+			>
 				<h1
 					className={clsx(
 						"grid font-bold text-center",
@@ -46,7 +52,7 @@ export function Hero() {
 						transition={{ delay: 1.5, duration: 1.5 }}
 						initial={{ opacity: 0, top: 150 }}
 					>
-						Konferencia
+						{count < 10 ? "Konferencia" : "Konferencica"}
 					</motion.span>
 				</h1>
 				<div
