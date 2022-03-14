@@ -48,7 +48,11 @@
 		"react/require-default-props": "off", // React `defaultProps` are deprecated
 
 		"react/jsx-no-target-blank": "off", // Links on the site should be safe
-		"no-plusplus": "off"
+		"no-plusplus": "off",
+		"@typescript-eslint/no-unused-vars": [
+			"warn",
+			{ "varsIgnorePattern": "[rR]eact" }
+		]
 	},
 
 	"overrides": [

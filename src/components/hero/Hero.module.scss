@@ -17,6 +17,8 @@
 	// background: linear-gradient(to bottom, transparent, #d0eaeb);
 	@apply bg-primary-200;
 
+	/// Disable stars
+	/*
 	& > span {
 		@apply absolute inset-0;
 		@apply w-full h-full overflow-hidden;
@@ -79,4 +81,5 @@
 			}
 		}
 	}
+	*/
 }
