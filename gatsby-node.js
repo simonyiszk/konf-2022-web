@@ -16,7 +16,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 	});
 };
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ /* graphql, */ actions }) => {
 	const { createRedirect } = actions;
 	createRedirect({
 		fromPath: "/2021",

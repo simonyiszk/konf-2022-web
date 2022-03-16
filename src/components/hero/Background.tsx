@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { motion } from "framer-motion";
 import * as React from "react";
 
 import Macska1 from "@/assets/svg/Macska1.inline.svg";
@@ -87,24 +86,28 @@ export function Background({ count, setCount }: BackgroundProps) {
 				/>
 			</div>
 
-			<div className={clsx(styles.marquee4, "absolute top-44 right-44")}>
+			<div
+				className={clsx(styles.marquee4, "absolute top-44 right-44 opacity-75")}
+			>
 				<img className="" src="/assets/images/Felhő4.svg" alt="" />
 			</div>
 			<div
 				className={clsx(
 					styles.marquee2,
-					"hidden absolute top-20 left-20 md:block",
+					"hidden absolute top-20 left-20 opacity-75 md:block",
 				)}
 			>
 				<img className="" src="/assets/images/Felhő5.svg" alt="" />
 			</div>
-			<div className={clsx(styles.marquee1, "absolute top-0 left-1/2")}>
+			<div
+				className={clsx(styles.marquee1, "absolute top-0 left-1/2 opacity-75")}
+			>
 				<img className="" src="/assets/images/Felhő5.svg" alt="" />
 			</div>
 			<div
 				className={clsx(
 					styles.marquee3,
-					"hidden absolute -top-4 left-1/3 md:block",
+					"hidden absolute -top-4 left-1/3 opacity-75 md:block",
 				)}
 			>
 				<img className="" src="/assets/images/Felhő2.svg" alt="" />
