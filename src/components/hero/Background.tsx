@@ -14,7 +14,7 @@ export function Background({ count, setCount }: BackgroundProps) {
 	return (
 		<div
 			aria-hidden
-			className="overflow-hidden absolute w-screen h-screen"
+			className="overflow-hidden absolute w-full h-screen"
 			style={{ userSelect: "none" }}
 		>
 			<div className="absolute inset-x-0 bottom-0">
