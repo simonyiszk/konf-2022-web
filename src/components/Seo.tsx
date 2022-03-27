@@ -57,13 +57,31 @@ export function Seo({ description, lang = "hu", meta = [], title }: SeoProps) {
 				{
 					rel: "icon",
 					type: "image/png",
-					href: "/favicon.png",
+					href: "/favicon-16.png",
+					sizes: "16x16",
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "/favicon-32.png",
+					sizes: "32x32",
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "/favicon-64.png",
 					sizes: "64x64",
 				},
 				{
 					rel: "icon",
 					type: "image/png",
-					href: "/favicon-large.png",
+					href: "/favicon.png",
+					sizes: "128x128",
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "/favicon-256.png",
 					sizes: "256x256",
 				},
 			]}
