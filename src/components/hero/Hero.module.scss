@@ -11,11 +11,14 @@
 	& * {
 		pointer-events: auto;
 	}
+	mix-blend-mode: normal;
 }
 
 .bg {
+	//@apply bg-primary-200;
+	@apply sticky top-0;
+
 	// background: linear-gradient(to bottom, transparent, #d0eaeb);
-	@apply bg-primary-200;
 
 	/// Disable stars
 	/*

@@ -130,6 +130,10 @@ export function Seo({ description, lang = "hu", meta = [], title }: SeoProps) {
 					name: `thumbnail`,
 					content: previewImage,
 				},
+				{
+					name: "color-scheme",
+					content: "dark light",
+				},
 			].concat(meta)}
 		/>
 	);
