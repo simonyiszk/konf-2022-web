@@ -38,9 +38,10 @@ export function Seo({ description, lang = "hu", meta = [], title }: SeoProps) {
 		description ??
 		site?.siteMetadata?.description ??
 		"XIX. Simonyi Konferencia";
-	const defaultTitle = site?.siteMetadata?.title
-		? `${site.siteMetadata.title}`
-		: "XIX. Simonyi Konferencia";
+	const titleTemplate = site?.siteMetadata?.title
+		? `${site.siteMetadata.title} | %s`
+		: "XIX. Simonyi Konferencia | %s";
+	const defaultTitle = site?.siteMetadata?.title ?? "XIX. Simonyi Konferencia";
 	const previewImage =
 		site?.siteMetadata?.image && site?.siteMetadata?.siteUrl
 			? `${site?.siteMetadata?.siteUrl}${site?.siteMetadata?.image}`
@@ -52,7 +53,8 @@ export function Seo({ description, lang = "hu", meta = [], title }: SeoProps) {
 				lang,
 			}}
 			title={title}
-			titleTemplate={defaultTitle}
+			titleTemplate={titleTemplate}
+			defaultTitle={defaultTitle}
 			link={[
 				{
 					rel: "icon",

@@ -13,125 +13,47 @@ export type BackgroundProps = {
 };
 
 export function Background({ count, setCount }: BackgroundProps) {
-	const { scrollYProgress, scrollY } = useViewportScroll();
+	const { scrollY } = useViewportScroll();
 	const { height } = useWindowDimensions();
 
 	const scale = useTransform(scrollY, [0, (height ?? 600) * 1], [1, 0.1]);
 	const translateY = useTransform(
 		scrollY,
 		[0, (height ?? 600) * 1],
-		[0, (height ?? 600) * 0.1],
+		[0, (height ?? 600) * -0.8],
 	);
-	const rotate = useTransform(scrollY, [0, (height ?? 600) * 1], [0, -90]);
+	// const rotate = useTransform(scrollY, [0, (height ?? 600) * 1], [0, -90]);
+	const opacity = useTransform(scrollY, [0, (height ?? 600) * 1.1], [1.5, 0.2]);
 
 	return (
 		<div
 			aria-hidden
-			className="overflow-x-hidden overflow-y-clip absolute w-full h-[200vh] pointer-events-none"
+			className="overflow-x-hidden overflow-y-clip absolute w-full h-[200vh] pointer-events-auto"
 			style={{ userSelect: "none" }}
 		>
 			<motion.div
-				className="relative w-full h-[200vh]"
-				style={{ scale, translateY, rotate }}
+				className="relative w-full h-[200vh] origin-[bottom_center]"
+				style={{
+					scale,
+					translateY,
+					opacity,
+					/* rotate, */
+					willChange: "transform, opacity",
+				}}
 			>
-				<div className="absolute top-0 right-[-55%] w-[200%]">
-					<img
-						className="w-[300vw]"
-						src="/assets/images/Group 101.svg"
-						alt=""
-					/>
-				</div>
-				<div className="absolute top-[10%] right-[-38%] w-[185%]">
-					<img
-						className="w-[300vw]"
-						src="/assets/images/Group 102.svg"
-						alt=""
-					/>
-				</div>
-				<div className="absolute top-[50%] right-[-10%] w-[120%]">
-					<img className="w-[300vw]" src="/assets/images/Group 99.svg" alt="" />
+				<div className="absolute top-[10%] right-[-150%] w-[400%] sm:right-[-100%] sm:w-[300%] lg:right-[-50%] lg:w-[200%]">
+					<img className="w-[500vw]" src="/assets/images/earth.svg" alt="" />
 				</div>
 			</motion.div>
 
-			{false && (
+			{true && (
 				<>
-					<div className="absolute inset-x-0 bottom-0">
-						<div className={clsx(styles.ground)} />
-					</div>
-
-					<div className="absolute bottom-[80px] -left-10 sm:w-1/2 xl:left-10">
-						<img
-							className="max-h-[188px]"
-							src="/assets/images/Hegy3b.svg"
-							alt=""
-						/>
-					</div>
-					<div className="absolute bottom-[80px] -left-20 w-2/5 sm:w-1/2 xl:left-0">
-						<img
-							className="max-h-[166px]"
-							src="/assets/images/Hegy2b.svg"
-							alt=""
-						/>
-					</div>
-					<div className="absolute bottom-[73px] -left-20 w-1/2 xl:left-0">
-						<img
-							className="max-h-[450px]"
-							src="/assets/images/Fa2a.svg"
-							alt=""
-						/>
-					</div>
-					<div className="absolute bottom-[70px] left-10 w-1/6 sm:left-20 xl:left-40">
-						<img
-							className="max-h-[60px]"
-							src="/assets/images/Bokor5.svg"
-							alt=""
-						/>
-					</div>
-					<div className="absolute bottom-[70px] left-0 w-1/5 xl:left-20">
-						<img
-							className="max-h-[70px]"
-							src="/assets/images/Bokor5.svg"
-							alt=""
-						/>
-					</div>
-
-					<div className="absolute -right-10 bottom-[73px] w-1/3 sm:w-1/2 md:-right-10 xl:right-0">
-						<img
-							className="absolute right-0 bottom-0 max-h-[210px]"
-							src="/assets/images/Épület.svg"
-							alt=""
-						/>
-					</div>
-					<div className="absolute right-20 bottom-[73px] w-1/5 sm:right-52 xl:right-64">
-						<img
-							className="absolute right-0 bottom-0 max-h-[80px]"
-							src="/assets/images/Fa2b.svg"
-							alt=""
-						/>
-					</div>
-					<div className="absolute right-[9rem] bottom-[70px] w-1/5 sm:right-[16.2rem] xl:right-[19.2rem]">
-						<img
-							className="absolute right-0 bottom-0 max-h-[30px]"
-							src="/assets/images/Bokor1a.svg"
-							alt=""
-						/>
-					</div>
-					<div className="absolute right-[8.4rem] bottom-[70px] w-1/6 sm:right-[15.7rem] xl:right-[18.7rem]">
-						<img
-							className={clsx(
-								"absolute right-0 bottom-0 max-h-[20px]",
-								styles.flip,
-							)}
-							src="/assets/images/Bokor1a.svg"
-							alt=""
-						/>
-					</div>
-
 					<div
 						className={clsx(
 							"absolute bottom-[80px] left-1/3 w-1/6 pointer-events-auto",
 							count < 10 ? "text-[#f07e46]" : "text-[#6abd51]",
 						)}
+						style={{ userSelect: "auto" }}
 					>
 						{/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
 						<Macska1
@@ -140,6 +62,7 @@ export function Background({ count, setCount }: BackgroundProps) {
 							alt=""
 							onClick={() => {
 								setCount(count + 1);
+								console.log("click");
 							}}
 						/>
 					</div>
@@ -163,10 +86,31 @@ export function Background({ count, setCount }: BackgroundProps) {
 					<div
 						className={clsx(
 							styles.marquee1,
-							"absolute top-0 left-1/2 opacity-75",
+							"absolute top-0 left-1/2 pointer-events-none",
 						)}
 					>
-						<img className="" src="/assets/images/Felhő5.svg" alt="" />
+						<div
+							className={clsx(
+								"absolute top-[7px] left-[15%] w-1/2 pointer-events-auto",
+								count < 10 ? "text-[#f07e46]" : "text-[#6abd51]",
+							)}
+						>
+							{/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
+							<Macska1
+								className={clsx("max-h-[70px]")}
+								style={{ opacity: 1 - count * 0.1 > 0 ? 1 - count * 0.1 : 1 }}
+								alt=""
+								onClick={() => {
+									setCount(count + 1);
+									console.log("click");
+								}}
+							/>
+						</div>
+						<img
+							className="z-20 opacity-75 pointer-events-none"
+							src="/assets/images/Felhő5.svg"
+							alt=""
+						/>
 					</div>
 					<div
 						className={clsx(

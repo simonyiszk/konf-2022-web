@@ -10,7 +10,7 @@ import * as styles from "./Hero.module.scss";
 
 export function Hero() {
 	const [count, setCount] = React.useState(0);
-	const { scrollYProgress, scrollY } = useViewportScroll();
+	const { scrollY } = useViewportScroll();
 	const { height } = useWindowDimensions();
 
 	const backgroundColor = useTransform(
@@ -20,8 +20,8 @@ export function Hero() {
 	);
 	const color = useTransform(
 		scrollY,
-		[0, (height ?? 600) * 1],
-		["hsl(182, 0, 87)", "hsl(182, 40, 87)"],
+		[(height ?? 0) * 0.5, (height ?? 600) * 1],
+		["hsl(221, 39, 11)", "hsl(182, 40, 87)"],
 	);
 
 	return (
@@ -29,6 +29,7 @@ export function Hero() {
 			<div className="relative">
 				<Background count={count} setCount={setCount} />
 			</div>
+
 			<motion.div className="h-[200vh]" style={{ backgroundColor }}>
 				<div className={clsx(styles.bg)}>
 					<motion.div
