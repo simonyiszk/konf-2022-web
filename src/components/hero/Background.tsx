@@ -41,87 +41,78 @@ export function Background({ count, setCount }: BackgroundProps) {
 					willChange: "transform, opacity",
 				}}
 			>
-				<div className="absolute top-[10%] right-[-150%] w-[400%] sm:right-[-100%] sm:w-[300%] lg:right-[-50%] lg:w-[200%]">
+				<div className="absolute top-[30%] right-[-150%] w-[400%] sm:top-[20%] sm:right-[-100%] sm:w-[300%] lg:top-[10%] lg:right-[-50%] lg:w-[200%]">
 					<img className="w-[500vw]" src="/assets/images/earth.svg" alt="" />
 				</div>
 			</motion.div>
 
-			{true && (
-				<>
-					<div
-						className={clsx(
-							"absolute bottom-[80px] left-1/3 w-1/6 pointer-events-auto",
-							count < 10 ? "text-[#f07e46]" : "text-[#6abd51]",
-						)}
-						style={{ userSelect: "auto" }}
-					>
-						{/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
-						<Macska1
-							className={clsx("max-h-[70px]")}
-							style={{ opacity: 1 - count * 0.1 > 0 ? 1 - count * 0.1 : 1 }}
-							alt=""
-							onClick={() => {
-								setCount(count + 1);
-								console.log("click");
-							}}
-						/>
-					</div>
+			<div
+				className={clsx(
+					"absolute bottom-[80px] left-1/3 w-1/6 pointer-events-auto",
+					count < 10 ? "text-[#f07e46]" : "text-[#6abd51]",
+				)}
+			>
+				{/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
+				<Macska1
+					className={clsx("max-h-[70px] transform-gpu")}
+					style={{
+						opacity: 1 - count * 0.1 > 0 ? 1 - count * 0.1 : 1,
+						transform: `scale(${1 + count * 0.2})`,
+					}}
+					alt=""
+					onClick={() => {
+						setCount(count + 1);
+					}}
+				/>
+			</div>
 
-					<div
-						className={clsx(
-							styles.marquee4,
-							"absolute top-44 right-44 opacity-75",
-						)}
-					>
-						<img className="" src="/assets/images/Felhő4.svg" alt="" />
-					</div>
-					<div
-						className={clsx(
-							styles.marquee2,
-							"hidden absolute top-20 left-20 opacity-75 md:block",
-						)}
-					>
-						<img className="" src="/assets/images/Felhő5.svg" alt="" />
-					</div>
-					<div
-						className={clsx(
-							styles.marquee1,
-							"absolute top-0 left-1/2 pointer-events-none",
-						)}
-					>
-						<div
-							className={clsx(
-								"absolute top-[7px] left-[15%] w-1/2 pointer-events-auto",
-								count < 10 ? "text-[#f07e46]" : "text-[#6abd51]",
-							)}
-						>
-							{/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
-							<Macska1
-								className={clsx("max-h-[70px]")}
-								style={{ opacity: 1 - count * 0.1 > 0 ? 1 - count * 0.1 : 1 }}
-								alt=""
-								onClick={() => {
-									setCount(count + 1);
-									console.log("click");
-								}}
-							/>
-						</div>
-						<img
-							className="z-20 opacity-75 pointer-events-none"
-							src="/assets/images/Felhő5.svg"
-							alt=""
-						/>
-					</div>
-					<div
-						className={clsx(
-							styles.marquee3,
-							"hidden absolute -top-4 left-1/3 opacity-75 md:block",
-						)}
-					>
-						<img className="" src="/assets/images/Felhő2.svg" alt="" />
-					</div>
-				</>
-			)}
+			<div
+				className={clsx(styles.marquee4, "absolute top-44 right-44 opacity-75")}
+			>
+				<img className="" src="/assets/images/Felhő4.svg" alt="" />
+			</div>
+			<div
+				className={clsx(
+					styles.marquee2,
+					"hidden absolute top-20 left-20 opacity-75 md:block",
+				)}
+			>
+				<img className="" src="/assets/images/Felhő5.svg" alt="" />
+			</div>
+			<div className={clsx(styles.marquee1, "absolute top-0 left-1/2")}>
+				<div
+					className={clsx(
+						"absolute top-[7px] left-[15%] w-1/2",
+						count < 10 ? "text-[#f07e46]" : "text-[#6abd51]",
+					)}
+				>
+					{/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
+					<Macska1
+						className={clsx("max-h-[70px] pointer-events-auto")}
+						style={{
+							opacity: 1 - count * 0.1 > 0 ? 1 - count * 0.1 : 1,
+							transform: `scale(${1 + count * 0.2})`,
+						}}
+						alt=""
+						onClick={() => {
+							setCount(count + 1);
+						}}
+					/>
+				</div>
+				<img
+					className="z-20 opacity-75 pointer-events-none"
+					src="/assets/images/Felhő5.svg"
+					alt=""
+				/>
+			</div>
+			<div
+				className={clsx(
+					styles.marquee3,
+					"hidden absolute -top-4 left-1/3 opacity-75 md:block",
+				)}
+			>
+				<img className="" src="/assets/images/Felhő2.svg" alt="" />
+			</div>
 		</div>
 	);
 }

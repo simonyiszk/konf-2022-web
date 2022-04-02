@@ -30,7 +30,10 @@ export function Hero() {
 				<Background count={count} setCount={setCount} />
 			</div>
 
-			<motion.div className="h-[200vh]" style={{ backgroundColor }}>
+			<motion.div
+				className="h-[200vh] pointer-events-none"
+				style={{ backgroundColor }}
+			>
 				<div className={clsx(styles.bg)}>
 					<motion.div
 						className={clsx(
