@@ -1,5 +1,17 @@
 .title {
 	grid-template-columns: auto auto;
+	@apply text-7xl leading-[0.5];
+	@apply sm:text-9xl sm:leading-[0.5];
+	@apply lg:text-[12rem] lg:leading-[0.5];
+
+	& :nth-child(3) {
+		@apply text-6xl leading-[0.5];
+		@apply sm:text-7xl sm:leading-[0.5];
+		@apply lg:text-9xl lg:leading-[0.5];
+	}
+	& > * {
+		@apply my-4;
+	}
 }
 
 .date {
@@ -12,6 +24,10 @@
 		pointer-events: auto;
 	}
 	mix-blend-mode: normal;
+}
+
+.shadow {
+	filter: drop-shadow(4px 4px 0 hsl(182, 40%, 87%));
 }
 
 .bg {

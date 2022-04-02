@@ -1,8 +1,13 @@
-.ground {
-	@apply w-auto h-20;
-	background-image: url("/assets/images/Föld3.svg");
-	background-repeat: repeat-x;
-	background-size: auto 5rem;
+.earth {
+	@apply absolute top-[25%] right-[-100%] w-[300%];
+
+	@screen sm {
+		@apply top-[20%] right-[-50%] w-[200%];
+	}
+
+	@screen lg {
+		@apply top-[15%] right-[-25%] w-[150%];
+	}
 }
 
 .flip {
@@ -52,6 +57,18 @@
 	@keyframes marquee4 {
 		100% {
 			transform: translate(calc(-111vw + -219px), 0);
+		}
+		0% {
+			transform: translate(calc(11rem + 219px + 11rem), 0);
+		}
+	}
+}
+
+.marquee5 {
+	animation: marquee5 37s linear infinite;
+	@keyframes marquee5 {
+		100% {
+			transform: translate(calc(-321vw + -219px), 0);
 		}
 		0% {
 			transform: translate(calc(11rem + 219px + 11rem), 0);

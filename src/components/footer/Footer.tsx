@@ -6,46 +6,49 @@ import {
 	FaYoutube,
 } from "react-icons/fa";
 
+import Schdesign from "@/assets/svg/schdesign.inline.svg";
+import SimonyiColor from "@/assets/svg/simonyi_color.inline.svg";
+import VIK from "@/assets/svg/VIK.inline.svg";
+
 export function Footer() {
 	return (
-		<footer className="z-20 p-8 w-full text-white bg-yellow" id="footer">
+		<footer className="z-20 p-8 w-full text-primary-200" id="footer">
 			<div className="container flex flex-col justify-center items-center mx-auto space-y-6">
-				<div className="flex justify-evenly items-center w-full lg:w-1/3">
+				<div className="flex justify-evenly items-center w-full text-primary-200 lg:w-1/3">
 					<a href="mailto:konferencia@simonyi.bme.hu">
-						<FaEnvelope className="w-10 h-auto text-blue-dark hover:text-blue" />
+						<FaEnvelope className="w-10 h-auto hover:opacity-75" />
 					</a>
 					<a
 						href="https://www.instagram.com/simonyikonf/"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<FaInstagram className="w-10 h-auto text-blue-dark hover:text-blue" />
+						<FaInstagram className="w-10 h-auto hover:opacity-75" />
 					</a>
 					<a
-						href="https://fb.me/e/1ayaVpuDp"
+						href="https://fb.me/e/myxPUe7JM"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<FaFacebookSquare className="w-10 h-auto text-blue-dark hover:text-blue" />
+						<FaFacebookSquare className="w-10 h-auto hover:opacity-75" />
 					</a>
 					<a
 						href="https://www.youtube.com/user/SimonyiSzakkoli/"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<FaYoutube className="w-10 h-auto text-blue-dark hover:text-blue" />
+						<FaYoutube className="w-10 h-auto hover:opacity-75" />
 					</a>
 				</div>
-				<div className="grid grid-cols-1 gap-4 justify-items-center items-center w-full text-white lg:grid-cols-3 lg:w-auto">
+				<div className="grid grid-cols-1 gap-4 justify-items-center items-center w-full lg:grid-cols-3 lg:w-auto">
 					<a
 						href="https://simonyi.bme.hu"
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<img
-							src="/assets/images/simonyi_color.svg"
+						<SimonyiColor
 							alt="Simonyi Károly Szakkollégium"
-							className="w-auto h-16"
+							className="w-auto h-16 hover:opacity-75"
 						/>
 					</a>
 					<a
@@ -53,10 +56,9 @@ export function Footer() {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<img
-							src="/assets/images/VIK.svg"
+						<VIK
 							alt="Villamosmérnöki és Informatikai Kar"
-							className="w-auto h-16"
+							className="w-auto h-16 hover:opacity-75"
 						/>
 					</a>
 					<a
@@ -64,10 +66,9 @@ export function Footer() {
 						target="_blank"
 						rel="noopener noreferrer"
 					>
-						<img
-							src="/assets/images/schdesign.svg"
+						<Schdesign
 							alt="schdesign"
-							className="w-auto h-12"
+							className="w-auto h-12 hover:opacity-75"
 						/>
 					</a>
 				</div>

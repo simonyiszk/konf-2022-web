@@ -38,7 +38,7 @@ export function Hero() {
 					<motion.div
 						className={clsx(
 							styles.heroContainer,
-							"flex z-20 flex-col justify-center items-center mx-auto w-fit h-screen font-dongle text-primary",
+							"flex z-20 flex-col justify-center items-center mx-auto w-fit h-screen font-dongle font-bold text-primary",
 						)}
 						style={{ color }}
 					>
@@ -49,6 +49,7 @@ export function Hero() {
 								"sm:text-8xl sm:leading-[5rem]",
 								"lg:text-9xl lg:leading-[7rem]",
 								styles.title,
+								// styles.shadow,
 							)}
 						>
 							<motion.span
@@ -58,8 +59,8 @@ export function Hero() {
 								transition={{ delay: 0.5, duration: 2 }}
 								initial={{ opacity: 0, left: -300 }}
 							>
-								XIX.
-							</motion.span>{" "}
+								XIX.&nbsp;
+							</motion.span>
 							<motion.span
 								className="relative"
 								style={{ willChange: "right, opacity" }}
@@ -86,6 +87,7 @@ export function Hero() {
 								"sm:text-5xl",
 								"lg:text-6xl",
 								styles.date,
+								// styles.shadow,
 							)}
 						>
 							<div className="relative self-center mx-3">
@@ -116,7 +118,12 @@ export function Hero() {
 								/>
 							</div>
 						</div>
-						<div className="flex flex-row justify-evenly mt-4 w-full">
+						<div
+							className={clsx(
+								"flex flex-row justify-between mt-4 w-full",
+								// styles.shadow,
+							)}
+						>
 							<motion.a
 								className="block relative p-2 mx-4 hover:brightness-75"
 								href="https://fb.me/e/myxPUe7JM"
@@ -125,7 +132,7 @@ export function Hero() {
 								style={{ willChange: "left, opacity" }}
 								animate={{ opacity: 1, left: 0 }}
 								transition={{ delay: 4, duration: 1.5 }}
-								initial={{ opacity: 0, left: -50 }}
+								initial={{ opacity: 0, left: -80 }}
 							>
 								<BsFacebook className="w-8 h-auto sm:w-10 lg:w-12" />
 							</motion.a>
@@ -137,7 +144,7 @@ export function Hero() {
 								style={{ willChange: "right, opacity" }}
 								animate={{ opacity: 1, right: 0 }}
 								transition={{ delay: 4, duration: 1.5 }}
-								initial={{ opacity: 0, right: -50 }}
+								initial={{ opacity: 0, right: -80 }}
 							>
 								<BsInstagram className="w-8 h-auto sm:w-10 lg:w-12" />
 							</motion.a>

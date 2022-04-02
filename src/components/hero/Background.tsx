@@ -2,7 +2,8 @@ import clsx from "clsx";
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import * as React from "react";
 
-import Macska1 from "@/assets/svg/Macska1.inline.svg";
+import Felhő5 from "@/assets/svg/Felhő5.inline.svg";
+import Macska3 from "@/assets/svg/Macska3.inline.svg";
 import { useWindowDimensions } from "@/utils/hooks";
 
 import * as styles from "./Background.module.scss";
@@ -41,31 +42,16 @@ export function Background({ count, setCount }: BackgroundProps) {
 					willChange: "transform, opacity",
 				}}
 			>
-				<div className="absolute top-[30%] right-[-150%] w-[400%] sm:top-[20%] sm:right-[-100%] sm:w-[300%] lg:top-[10%] lg:right-[-50%] lg:w-[200%]">
+				<div className={clsx(styles.earth)}>
 					<img className="w-[500vw]" src="/assets/images/earth.svg" alt="" />
 				</div>
 			</motion.div>
 
 			<div
-				className={clsx(
-					"absolute bottom-[80px] left-1/3 w-1/6 pointer-events-auto",
-					count < 10 ? "text-[#f07e46]" : "text-[#6abd51]",
-				)}
+				className={clsx(styles.marquee5, "absolute top-36 right-44 md:block")}
 			>
-				{/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
-				<Macska1
-					className={clsx("max-h-[70px] transform-gpu")}
-					style={{
-						opacity: 1 - count * 0.1 > 0 ? 1 - count * 0.1 : 1,
-						transform: `scale(${1 + count * 0.2})`,
-					}}
-					alt=""
-					onClick={() => {
-						setCount(count + 1);
-					}}
-				/>
+				<img className="" src="/assets/images/Plane.svg" alt="" />
 			</div>
-
 			<div
 				className={clsx(styles.marquee4, "absolute top-44 right-44 opacity-75")}
 			>
@@ -87,10 +73,9 @@ export function Background({ count, setCount }: BackgroundProps) {
 					)}
 				>
 					{/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */}
-					<Macska1
+					<Macska3
 						className={clsx("max-h-[70px] pointer-events-auto")}
 						style={{
-							opacity: 1 - count * 0.1 > 0 ? 1 - count * 0.1 : 1,
 							transform: `scale(${1 + count * 0.2})`,
 						}}
 						alt=""
@@ -99,11 +84,7 @@ export function Background({ count, setCount }: BackgroundProps) {
 						}}
 					/>
 				</div>
-				<img
-					className="z-20 opacity-75 pointer-events-none"
-					src="/assets/images/Felhő5.svg"
-					alt=""
-				/>
+				<Felhő5 className="z-20 opacity-75 pointer-events-none" alt="" />
 			</div>
 			<div
 				className={clsx(
