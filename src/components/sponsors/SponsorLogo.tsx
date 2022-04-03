@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { getImage } from "gatsby-plugin-image";
 import * as React from "react";
 
 import { CMSImage } from "../cmsImage/CMSImage";
@@ -34,19 +34,14 @@ export function SponsorLogo({
 		<ConditionalWrapper
 			condition={!!link}
 			renderWrapper={(children) => (
-				<a
-					href={link}
-					// className={styles.link}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
+				<a href={link} target="_blank" rel="noopener noreferrer">
 					{children}
 				</a>
 			)}
 		>
 			<div className={clsx(styles.container, restProps.className)}>
 				<CMSImage
-					alt="name"
+					alt={name}
 					gatsbyImageData={imageData}
 					file={image?.file}
 					svg={image?.svg}

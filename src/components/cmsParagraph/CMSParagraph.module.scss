@@ -1,5 +1,5 @@
 .section {
-	@apply container mx-auto px-1;
+	@apply container mx-auto px-4 mb-16 mt-[-15vh];
 
 	h1,
 	h2,
@@ -7,7 +7,7 @@
 	h4,
 	h5,
 	h6 {
-		@apply text-center text-3xl mb-8;
+		@apply text-center text-3xl mb-8 mt-8;
 	}
 	p {
 		@apply mb-4;

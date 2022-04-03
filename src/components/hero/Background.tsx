@@ -29,7 +29,7 @@ export function Background({ count, setCount }: BackgroundProps) {
 	return (
 		<div
 			aria-hidden
-			className="overflow-x-hidden overflow-y-clip absolute w-full h-[200vh] pointer-events-auto"
+			className="overflow-hidden absolute w-full h-[200vh] pointer-events-none"
 			style={{ userSelect: "none" }}
 		>
 			<motion.div

@@ -1013,6 +1013,21 @@ declare namespace GatsbyTypes {
 		readonly type: Maybe<Scalars["String"]>;
 	};
 
+	type CurrentBuildDate = Node & {
+		readonly id: Scalars["ID"];
+		readonly parent: Maybe<Node>;
+		readonly children: ReadonlyArray<Node>;
+		readonly internal: Internal;
+		readonly currentDate: Maybe<Scalars["Date"]>;
+	};
+
+	type CurrentBuildDate_currentDateArgs = {
+		formatString: Maybe<Scalars["String"]>;
+		fromNow: Maybe<Scalars["Boolean"]>;
+		difference: Maybe<Scalars["String"]>;
+		locale: Maybe<Scalars["String"]>;
+	};
+
 	type ContentfulContentType = Node & {
 		readonly id: Scalars["ID"];
 		readonly parent: Maybe<Node>;
@@ -1059,6 +1074,8 @@ declare namespace GatsbyTypes {
 		readonly allMdx: MdxConnection;
 		readonly contentfulParagraphContentTextNode: Maybe<contentfulParagraphContentTextNode>;
 		readonly allContentfulParagraphContentTextNode: contentfulParagraphContentTextNodeConnection;
+		readonly currentBuildDate: Maybe<CurrentBuildDate>;
+		readonly allCurrentBuildDate: CurrentBuildDateConnection;
 		readonly contentfulContentType: Maybe<ContentfulContentType>;
 		readonly allContentfulContentType: ContentfulContentTypeConnection;
 	};
@@ -1443,6 +1460,21 @@ declare namespace GatsbyTypes {
 	type Query_allContentfulParagraphContentTextNodeArgs = {
 		filter: Maybe<contentfulParagraphContentTextNodeFilterInput>;
 		sort: Maybe<contentfulParagraphContentTextNodeSortInput>;
+		skip: Maybe<Scalars["Int"]>;
+		limit: Maybe<Scalars["Int"]>;
+	};
+
+	type Query_currentBuildDateArgs = {
+		id: Maybe<StringQueryOperatorInput>;
+		parent: Maybe<NodeFilterInput>;
+		children: Maybe<NodeFilterListInput>;
+		internal: Maybe<InternalFilterInput>;
+		currentDate: Maybe<DateQueryOperatorInput>;
+	};
+
+	type Query_allCurrentBuildDateArgs = {
+		filter: Maybe<CurrentBuildDateFilterInput>;
+		sort: Maybe<CurrentBuildDateSortInput>;
 		skip: Maybe<Scalars["Int"]>;
 		limit: Maybe<Scalars["Int"]>;
 	};
@@ -5715,6 +5747,184 @@ declare namespace GatsbyTypes {
 		readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 	};
 
+	type CurrentBuildDateConnection = {
+		readonly totalCount: Scalars["Int"];
+		readonly edges: ReadonlyArray<CurrentBuildDateEdge>;
+		readonly nodes: ReadonlyArray<CurrentBuildDate>;
+		readonly pageInfo: PageInfo;
+		readonly distinct: ReadonlyArray<Scalars["String"]>;
+		readonly max: Maybe<Scalars["Float"]>;
+		readonly min: Maybe<Scalars["Float"]>;
+		readonly sum: Maybe<Scalars["Float"]>;
+		readonly group: ReadonlyArray<CurrentBuildDateGroupConnection>;
+	};
+
+	type CurrentBuildDateConnection_distinctArgs = {
+		field: CurrentBuildDateFieldsEnum;
+	};
+
+	type CurrentBuildDateConnection_maxArgs = {
+		field: CurrentBuildDateFieldsEnum;
+	};
+
+	type CurrentBuildDateConnection_minArgs = {
+		field: CurrentBuildDateFieldsEnum;
+	};
+
+	type CurrentBuildDateConnection_sumArgs = {
+		field: CurrentBuildDateFieldsEnum;
+	};
+
+	type CurrentBuildDateConnection_groupArgs = {
+		skip: Maybe<Scalars["Int"]>;
+		limit: Maybe<Scalars["Int"]>;
+		field: CurrentBuildDateFieldsEnum;
+	};
+
+	type CurrentBuildDateEdge = {
+		readonly next: Maybe<CurrentBuildDate>;
+		readonly node: CurrentBuildDate;
+		readonly previous: Maybe<CurrentBuildDate>;
+	};
+
+	type CurrentBuildDateFieldsEnum =
+		| "id"
+		| "parent.id"
+		| "parent.parent.id"
+		| "parent.parent.parent.id"
+		| "parent.parent.parent.children"
+		| "parent.parent.children"
+		| "parent.parent.children.id"
+		| "parent.parent.children.children"
+		| "parent.parent.internal.content"
+		| "parent.parent.internal.contentDigest"
+		| "parent.parent.internal.description"
+		| "parent.parent.internal.fieldOwners"
+		| "parent.parent.internal.ignoreType"
+		| "parent.parent.internal.mediaType"
+		| "parent.parent.internal.owner"
+		| "parent.parent.internal.type"
+		| "parent.children"
+		| "parent.children.id"
+		| "parent.children.parent.id"
+		| "parent.children.parent.children"
+		| "parent.children.children"
+		| "parent.children.children.id"
+		| "parent.children.children.children"
+		| "parent.children.internal.content"
+		| "parent.children.internal.contentDigest"
+		| "parent.children.internal.description"
+		| "parent.children.internal.fieldOwners"
+		| "parent.children.internal.ignoreType"
+		| "parent.children.internal.mediaType"
+		| "parent.children.internal.owner"
+		| "parent.children.internal.type"
+		| "parent.internal.content"
+		| "parent.internal.contentDigest"
+		| "parent.internal.description"
+		| "parent.internal.fieldOwners"
+		| "parent.internal.ignoreType"
+		| "parent.internal.mediaType"
+		| "parent.internal.owner"
+		| "parent.internal.type"
+		| "children"
+		| "children.id"
+		| "children.parent.id"
+		| "children.parent.parent.id"
+		| "children.parent.parent.children"
+		| "children.parent.children"
+		| "children.parent.children.id"
+		| "children.parent.children.children"
+		| "children.parent.internal.content"
+		| "children.parent.internal.contentDigest"
+		| "children.parent.internal.description"
+		| "children.parent.internal.fieldOwners"
+		| "children.parent.internal.ignoreType"
+		| "children.parent.internal.mediaType"
+		| "children.parent.internal.owner"
+		| "children.parent.internal.type"
+		| "children.children"
+		| "children.children.id"
+		| "children.children.parent.id"
+		| "children.children.parent.children"
+		| "children.children.children"
+		| "children.children.children.id"
+		| "children.children.children.children"
+		| "children.children.internal.content"
+		| "children.children.internal.contentDigest"
+		| "children.children.internal.description"
+		| "children.children.internal.fieldOwners"
+		| "children.children.internal.ignoreType"
+		| "children.children.internal.mediaType"
+		| "children.children.internal.owner"
+		| "children.children.internal.type"
+		| "children.internal.content"
+		| "children.internal.contentDigest"
+		| "children.internal.description"
+		| "children.internal.fieldOwners"
+		| "children.internal.ignoreType"
+		| "children.internal.mediaType"
+		| "children.internal.owner"
+		| "children.internal.type"
+		| "internal.content"
+		| "internal.contentDigest"
+		| "internal.description"
+		| "internal.fieldOwners"
+		| "internal.ignoreType"
+		| "internal.mediaType"
+		| "internal.owner"
+		| "internal.type"
+		| "currentDate";
+
+	type CurrentBuildDateGroupConnection = {
+		readonly totalCount: Scalars["Int"];
+		readonly edges: ReadonlyArray<CurrentBuildDateEdge>;
+		readonly nodes: ReadonlyArray<CurrentBuildDate>;
+		readonly pageInfo: PageInfo;
+		readonly distinct: ReadonlyArray<Scalars["String"]>;
+		readonly max: Maybe<Scalars["Float"]>;
+		readonly min: Maybe<Scalars["Float"]>;
+		readonly sum: Maybe<Scalars["Float"]>;
+		readonly group: ReadonlyArray<CurrentBuildDateGroupConnection>;
+		readonly field: Scalars["String"];
+		readonly fieldValue: Maybe<Scalars["String"]>;
+	};
+
+	type CurrentBuildDateGroupConnection_distinctArgs = {
+		field: CurrentBuildDateFieldsEnum;
+	};
+
+	type CurrentBuildDateGroupConnection_maxArgs = {
+		field: CurrentBuildDateFieldsEnum;
+	};
+
+	type CurrentBuildDateGroupConnection_minArgs = {
+		field: CurrentBuildDateFieldsEnum;
+	};
+
+	type CurrentBuildDateGroupConnection_sumArgs = {
+		field: CurrentBuildDateFieldsEnum;
+	};
+
+	type CurrentBuildDateGroupConnection_groupArgs = {
+		skip: Maybe<Scalars["Int"]>;
+		limit: Maybe<Scalars["Int"]>;
+		field: CurrentBuildDateFieldsEnum;
+	};
+
+	type CurrentBuildDateFilterInput = {
+		readonly id: Maybe<StringQueryOperatorInput>;
+		readonly parent: Maybe<NodeFilterInput>;
+		readonly children: Maybe<NodeFilterListInput>;
+		readonly internal: Maybe<InternalFilterInput>;
+		readonly currentDate: Maybe<DateQueryOperatorInput>;
+	};
+
+	type CurrentBuildDateSortInput = {
+		readonly fields: Maybe<ReadonlyArray<Maybe<CurrentBuildDateFieldsEnum>>>;
+		readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+	};
+
 	type ContentfulContentTypeSysFilterInput = {
 		readonly type: Maybe<StringQueryOperatorInput>;
 	};
@@ -5994,6 +6204,12 @@ declare namespace GatsbyTypes {
 			>;
 		};
 	};
+
+	type staticEProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879QueryVariables =
+		Exact<{ [key: string]: never }>;
+
+	type staticEProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879Query =
+		{ readonly currentBuildDate: Maybe<Pick<CurrentBuildDate, "currentDate">> };
 
 	type Unnamed_1_QueryVariables = Exact<{ [key: string]: never }>;
 
