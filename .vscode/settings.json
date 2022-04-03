@@ -5,5 +5,9 @@
 		"source.fixAll.eslint": true
 	},
 	"typescript.tsdk": "./node_modules/typescript/lib",
-	"scss.lint.unknownAtRules": "ignore"
+	"scss.lint.unknownAtRules": "ignore",
+	"cSpell.enabled": false,
+	"[xml]": {
+		"editor.defaultFormatter": "redhat.vscode-xml"
+	}
 }

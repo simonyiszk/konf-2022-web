@@ -38,9 +38,10 @@ export function Seo({ description, lang = "hu", meta = [], title }: SeoProps) {
 		description ??
 		site?.siteMetadata?.description ??
 		"XIX. Simonyi Konferencia";
-	const defaultTitle = site?.siteMetadata?.title
-		? `${site.siteMetadata.title}`
-		: "XIX. Simonyi Konferencia";
+	const titleTemplate = site?.siteMetadata?.title
+		? `${site.siteMetadata.title} | %s`
+		: "XIX. Simonyi Konferencia | %s";
+	const defaultTitle = site?.siteMetadata?.title ?? "XIX. Simonyi Konferencia";
 	const previewImage =
 		site?.siteMetadata?.image && site?.siteMetadata?.siteUrl
 			? `${site?.siteMetadata?.siteUrl}${site?.siteMetadata?.image}`
@@ -52,18 +53,37 @@ export function Seo({ description, lang = "hu", meta = [], title }: SeoProps) {
 				lang,
 			}}
 			title={title}
-			titleTemplate={defaultTitle}
+			titleTemplate={titleTemplate}
+			defaultTitle={defaultTitle}
 			link={[
 				{
 					rel: "icon",
 					type: "image/png",
-					href: "/favicon.png",
+					href: "/favicon-16.png",
+					sizes: "16x16",
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "/favicon-32.png",
+					sizes: "32x32",
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "/favicon-64.png",
 					sizes: "64x64",
 				},
 				{
 					rel: "icon",
 					type: "image/png",
-					href: "/favicon-large.png",
+					href: "/favicon.png",
+					sizes: "128x128",
+				},
+				{
+					rel: "icon",
+					type: "image/png",
+					href: "/favicon-256.png",
 					sizes: "256x256",
 				},
 			]}
@@ -111,6 +131,10 @@ export function Seo({ description, lang = "hu", meta = [], title }: SeoProps) {
 				{
 					name: `thumbnail`,
 					content: previewImage,
+				},
+				{
+					name: "color-scheme",
+					content: "dark light",
 				},
 			].concat(meta)}
 		/>
