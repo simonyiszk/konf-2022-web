@@ -21,6 +21,7 @@ export default function IndexPage({ data }: IndexProps) {
 		<Layout>
 			<Seo title="2022.04.27." />
 			<Hero />
+
 			<CMSParagraph content={data.main} />
 			<SponsorSection
 				gold={data.gold}

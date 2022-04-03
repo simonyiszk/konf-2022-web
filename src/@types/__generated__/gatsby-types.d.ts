@@ -6115,17 +6115,6 @@ declare namespace GatsbyTypes {
 		readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 	};
 
-	type PagesQueryQueryVariables = Exact<{ [key: string]: never }>;
-
-	type PagesQueryQuery = {
-		readonly allSiteFunction: {
-			readonly nodes: ReadonlyArray<Pick<SiteFunction, "functionRoute">>;
-		};
-		readonly allSitePage: {
-			readonly nodes: ReadonlyArray<Pick<SitePage, "path">>;
-		};
-	};
-
 	type IndexQueryQueryVariables = Exact<{ [key: string]: never }>;
 
 	type IndexQueryQuery = {
@@ -6205,24 +6194,20 @@ declare namespace GatsbyTypes {
 		};
 	};
 
-	type staticEProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879QueryVariables =
+	type staticCProjectsProgrammingwebkonf2022WebsrccomponentsSeoTsx943528760QueryVariables =
 		Exact<{ [key: string]: never }>;
 
-	type staticEProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879Query =
-		{ readonly currentBuildDate: Maybe<Pick<CurrentBuildDate, "currentDate">> };
-
-	type Unnamed_1_QueryVariables = Exact<{ [key: string]: never }>;
-
-	type Unnamed_1_Query = {
-		readonly site: Maybe<{
-			readonly siteMetadata: Maybe<
-				Pick<
-					SiteSiteMetadata,
-					"siteUrl" | "title" | "description" | "author" | "image" | "favicon"
-				>
-			>;
-		}>;
-	};
+	type staticCProjectsProgrammingwebkonf2022WebsrccomponentsSeoTsx943528760Query =
+		{
+			readonly site: Maybe<{
+				readonly siteMetadata: Maybe<
+					Pick<
+						SiteSiteMetadata,
+						"siteUrl" | "title" | "description" | "author" | "image" | "favicon"
+					>
+				>;
+			}>;
+		};
 
 	type GatsbyImageSharpFixedFragment = Pick<
 		ImageSharpFixed,
@@ -6306,4 +6291,21 @@ declare namespace GatsbyTypes {
 		ImageSharpFluid,
 		"aspectRatio" | "src" | "srcSet" | "srcWebp" | "srcSetWebp" | "sizes"
 	>;
+
+	type staticCProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879QueryVariables =
+		Exact<{ [key: string]: never }>;
+
+	type staticCProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879Query =
+		{ readonly currentBuildDate: Maybe<Pick<CurrentBuildDate, "currentDate">> };
+
+	type PagesQueryQueryVariables = Exact<{ [key: string]: never }>;
+
+	type PagesQueryQuery = {
+		readonly allSiteFunction: {
+			readonly nodes: ReadonlyArray<Pick<SiteFunction, "functionRoute">>;
+		};
+		readonly allSitePage: {
+			readonly nodes: ReadonlyArray<Pick<SitePage, "path">>;
+		};
+	};
 }
