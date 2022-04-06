@@ -62,6 +62,7 @@ export const query = graphql`
 			}
 		}
 		silver: allContentfulSponsorLogo(
+			sort: { fields: name, order: ASC }
 			filter: { sponsorshipGrade: { eq: "kiemelt támogató" } }
 		) {
 			nodes {
@@ -85,6 +86,7 @@ export const query = graphql`
 			}
 		}
 		bronze: allContentfulSponsorLogo(
+			sort: { fields: name, order: ASC }
 			filter: { sponsorshipGrade: { eq: "támogató" } }
 		) {
 			nodes {
