@@ -149,7 +149,7 @@ export function Hero() {
 								<BsInstagram className="w-8 h-auto sm:w-10 lg:w-12" />
 							</motion.a>
 						</div>
-						<div className="flex relative justify-center mt-4 font-sans">
+						<div className="flex relative justify-center mt-8 font-sans">
 							<motion.a
 								className="relative p-4 w-fit text-xl font-bold text-white bg-[#f07e46] rounded-lg hover:rounded-2xl active:rounded-full transition-all lg:text-2xl"
 								href="https://xixsimonyikonf.eventbrite.com/"

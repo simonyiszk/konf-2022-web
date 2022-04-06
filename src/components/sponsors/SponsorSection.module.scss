@@ -1,5 +1,5 @@
 .section {
-	@apply text-center bg-white text-black pt-4 grid gap-3 px-8 gap-x-20 pb-8;
+	@apply text-center bg-white text-black pt-8 grid gap-3 px-8 gap-x-20 pb-8;
 	grid-template-columns: 1fr;
 
 	h3 {
@@ -49,11 +49,22 @@
 	@screen sm {
 		grid-template-columns: 1fr 1fr;
 
+		& :last-child:nth-child(2n + 1) {
+			@apply col-span-2;
+		}
+
 		// height: -moz-available;
 		// height: -webkit-fill-available;
 		// height: fill-available;
 	}
 	@screen md {
 		grid-template-columns: 1fr 1fr 1fr;
+
+		& :last-child:nth-child(3n + 1) {
+			@apply col-span-3;
+		}
+		& :last-child:nth-child(3n + 2) {
+			@apply col-span-2;
+		}
 	}
 }
