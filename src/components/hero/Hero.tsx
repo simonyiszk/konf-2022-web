@@ -53,19 +53,19 @@ export function Hero() {
 							)}
 						>
 							<motion.span
-								className="relative z-30"
+								className="relative z-30 mr-4"
 								style={{ willChange: "left, opacity" }}
 								animate={{ opacity: 1, left: 0 }}
-								transition={{ delay: 0.5, duration: 2 }}
+								transition={{ delay: 0.2, duration: 1.5 }}
 								initial={{ opacity: 0, left: -300 }}
 							>
-								XIX.&nbsp;
+								XIX.
 							</motion.span>
 							<motion.span
 								className="relative"
 								style={{ willChange: "right, opacity" }}
 								animate={{ opacity: 1, right: 0 }}
-								transition={{ delay: 0.5, duration: 2 }}
+								transition={{ delay: 0.2, duration: 1.5 }}
 								initial={{ opacity: 0, right: -300 }}
 							>
 								Simonyi
@@ -74,7 +74,7 @@ export function Hero() {
 								className="relative col-span-2 tracking-wide"
 								style={{ willChange: "top, opacity" }}
 								animate={{ opacity: 1, top: 0 }}
-								transition={{ delay: 1.5, duration: 1.5 }}
+								transition={{ delay: 1, duration: 1.2 }}
 								initial={{ opacity: 0, top: 150 }}
 							>
 								{count < 10 ? "Konferencia" : "Konferencica"}
@@ -95,7 +95,7 @@ export function Hero() {
 									style={{ willChange: "width", borderColor: color }}
 									className="rounded-full border-t-[3px] border-primary"
 									animate={{ width: "100%" }}
-									transition={{ delay: 3.5, duration: 1.5 }}
+									transition={{ delay: 1.5, duration: 1.1 }}
 									initial={{ width: "0%" }}
 								/>
 							</div>
@@ -103,7 +103,7 @@ export function Hero() {
 								className="relative px-1 sm:px-2"
 								style={{ willChange: "top, opacity" }}
 								animate={{ opacity: 1, top: 0 }}
-								transition={{ delay: 2.5, duration: 1.5 }}
+								transition={{ delay: 1.2, duration: 1.3 }}
 								initial={{ opacity: 0, top: 75 }}
 							>
 								2022.04.27.
@@ -113,7 +113,7 @@ export function Hero() {
 									style={{ willChange: "width", borderColor: color }}
 									className="absolute right-0 rounded-full border-t-[3px] border-primary rotate-180"
 									animate={{ width: "100%" }}
-									transition={{ delay: 3.5, duration: 1.5 }}
+									transition={{ delay: 1.5, duration: 1.1 }}
 									initial={{ width: "0%" }}
 								/>
 							</div>
@@ -131,7 +131,7 @@ export function Hero() {
 								rel="noopener"
 								style={{ willChange: "left, opacity" }}
 								animate={{ opacity: 1, left: 0 }}
-								transition={{ delay: 4, duration: 1.5 }}
+								transition={{ delay: 1.6, duration: 1.2 }}
 								initial={{ opacity: 0, left: -80 }}
 							>
 								<BsFacebook className="w-8 h-auto sm:w-10 lg:w-12" />
@@ -143,19 +143,19 @@ export function Hero() {
 								rel="noopener"
 								style={{ willChange: "right, opacity" }}
 								animate={{ opacity: 1, right: 0 }}
-								transition={{ delay: 4, duration: 1.5 }}
+								transition={{ delay: 1.6, duration: 1.2 }}
 								initial={{ opacity: 0, right: -80 }}
 							>
 								<BsInstagram className="w-8 h-auto sm:w-10 lg:w-12" />
 							</motion.a>
 						</div>
-						<div className="flex relative justify-center mt-8 font-sans">
+						<div className="flex relative justify-center font-sans">
 							<motion.a
-								className="relative p-4 w-fit text-xl font-bold text-white bg-[#f07e46] rounded-lg hover:rounded-2xl active:rounded-full transition-all lg:text-2xl"
+								className="relative p-4 mt-8 w-fit text-xl font-bold text-white bg-[#f07e46] rounded-lg hover:rounded-2xl active:rounded-full transition-all lg:text-2xl"
 								href="https://xixsimonyikonf.eventbrite.com/"
 								style={{ willChange: "top, opacity" }}
 								animate={{ opacity: 1, top: 0 }}
-								transition={{ delay: 4.5, duration: 1.5 }}
+								transition={{ delay: 1.7, duration: 1.3 }}
 								initial={{ opacity: 0, top: 80 }}
 								target="_blank"
 								rel="noopener noreferrer"
