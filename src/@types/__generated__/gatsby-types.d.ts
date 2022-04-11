@@ -730,6 +730,56 @@ type ContentfulGalleryImagesSysContentTypeSys = {
   readonly id: Maybe<Scalars['String']>;
 };
 
+type ContentfulOrganizer = ContentfulReference & ContentfulEntry & Node & {
+  readonly contentful_id: Scalars['String'];
+  readonly id: Scalars['ID'];
+  readonly node_locale: Scalars['String'];
+  readonly name: Maybe<Scalars['String']>;
+  readonly title: Maybe<Scalars['String']>;
+  readonly email: Maybe<Scalars['String']>;
+  readonly order: Maybe<Scalars['Int']>;
+  readonly image: Maybe<ContentfulAsset>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+  readonly sys: Maybe<ContentfulOrganizerSys>;
+  readonly parent: Maybe<Node>;
+  readonly children: ReadonlyArray<Node>;
+  readonly internal: Internal;
+};
+
+
+type ContentfulOrganizer_createdAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
+type ContentfulOrganizer_updatedAtArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+type ContentfulOrganizerSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly contentType: Maybe<ContentfulOrganizerSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+};
+
+type ContentfulOrganizerSysContentType = {
+  readonly sys: Maybe<ContentfulOrganizerSysContentTypeSys>;
+};
+
+type ContentfulOrganizerSysContentTypeSys = {
+  readonly type: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly id: Maybe<Scalars['String']>;
+};
+
 type MarkdownHeading = {
   readonly id: Maybe<Scalars['String']>;
   readonly value: Maybe<Scalars['String']>;
@@ -1213,6 +1263,8 @@ type Query = {
   readonly allContentfulParagraph: ContentfulParagraphConnection;
   readonly contentfulGalleryImages: Maybe<ContentfulGalleryImages>;
   readonly allContentfulGalleryImages: ContentfulGalleryImagesConnection;
+  readonly contentfulOrganizer: Maybe<ContentfulOrganizer>;
+  readonly allContentfulOrganizer: ContentfulOrganizerConnection;
   readonly markdownRemark: Maybe<MarkdownRemark>;
   readonly allMarkdownRemark: MarkdownRemarkConnection;
   readonly imageSharp: Maybe<ImageSharp>;
@@ -1564,6 +1616,33 @@ type Query_contentfulGalleryImagesArgs = {
 type Query_allContentfulGalleryImagesArgs = {
   filter: Maybe<ContentfulGalleryImagesFilterInput>;
   sort: Maybe<ContentfulGalleryImagesSortInput>;
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+};
+
+
+type Query_contentfulOrganizerArgs = {
+  contentful_id: Maybe<StringQueryOperatorInput>;
+  id: Maybe<StringQueryOperatorInput>;
+  node_locale: Maybe<StringQueryOperatorInput>;
+  name: Maybe<StringQueryOperatorInput>;
+  title: Maybe<StringQueryOperatorInput>;
+  email: Maybe<StringQueryOperatorInput>;
+  order: Maybe<IntQueryOperatorInput>;
+  image: Maybe<ContentfulAssetFilterInput>;
+  spaceId: Maybe<StringQueryOperatorInput>;
+  createdAt: Maybe<DateQueryOperatorInput>;
+  updatedAt: Maybe<DateQueryOperatorInput>;
+  sys: Maybe<ContentfulOrganizerSysFilterInput>;
+  parent: Maybe<NodeFilterInput>;
+  children: Maybe<NodeFilterListInput>;
+  internal: Maybe<InternalFilterInput>;
+};
+
+
+type Query_allContentfulOrganizerArgs = {
+  filter: Maybe<ContentfulOrganizerFilterInput>;
+  sort: Maybe<ContentfulOrganizerSortInput>;
   skip: Maybe<Scalars['Int']>;
   limit: Maybe<Scalars['Int']>;
 };
@@ -5393,6 +5472,297 @@ type ContentfulGalleryImagesSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type ContentfulOrganizerSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly contentType: Maybe<ContentfulOrganizerSysContentTypeFilterInput>;
+  readonly revision: Maybe<IntQueryOperatorInput>;
+};
+
+type ContentfulOrganizerSysContentTypeFilterInput = {
+  readonly sys: Maybe<ContentfulOrganizerSysContentTypeSysFilterInput>;
+};
+
+type ContentfulOrganizerSysContentTypeSysFilterInput = {
+  readonly type: Maybe<StringQueryOperatorInput>;
+  readonly linkType: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+};
+
+type ContentfulOrganizerConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentfulOrganizerEdge>;
+  readonly nodes: ReadonlyArray<ContentfulOrganizer>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly group: ReadonlyArray<ContentfulOrganizerGroupConnection>;
+};
+
+
+type ContentfulOrganizerConnection_distinctArgs = {
+  field: ContentfulOrganizerFieldsEnum;
+};
+
+
+type ContentfulOrganizerConnection_maxArgs = {
+  field: ContentfulOrganizerFieldsEnum;
+};
+
+
+type ContentfulOrganizerConnection_minArgs = {
+  field: ContentfulOrganizerFieldsEnum;
+};
+
+
+type ContentfulOrganizerConnection_sumArgs = {
+  field: ContentfulOrganizerFieldsEnum;
+};
+
+
+type ContentfulOrganizerConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: ContentfulOrganizerFieldsEnum;
+};
+
+type ContentfulOrganizerEdge = {
+  readonly next: Maybe<ContentfulOrganizer>;
+  readonly node: ContentfulOrganizer;
+  readonly previous: Maybe<ContentfulOrganizer>;
+};
+
+type ContentfulOrganizerFieldsEnum =
+  | 'contentful_id'
+  | 'id'
+  | 'node_locale'
+  | 'name'
+  | 'title'
+  | 'email'
+  | 'order'
+  | 'image.contentful_id'
+  | 'image.id'
+  | 'image.gatsbyImageData'
+  | 'image.spaceId'
+  | 'image.createdAt'
+  | 'image.updatedAt'
+  | 'image.file.url'
+  | 'image.file.details.size'
+  | 'image.file.fileName'
+  | 'image.file.contentType'
+  | 'image.title'
+  | 'image.description'
+  | 'image.node_locale'
+  | 'image.sys.type'
+  | 'image.sys.revision'
+  | 'image.url'
+  | 'image.placeholderUrl'
+  | 'image.mimeType'
+  | 'image.filename'
+  | 'image.width'
+  | 'image.height'
+  | 'image.parent.id'
+  | 'image.parent.parent.id'
+  | 'image.parent.parent.children'
+  | 'image.parent.children'
+  | 'image.parent.children.id'
+  | 'image.parent.children.children'
+  | 'image.parent.internal.content'
+  | 'image.parent.internal.contentDigest'
+  | 'image.parent.internal.description'
+  | 'image.parent.internal.fieldOwners'
+  | 'image.parent.internal.ignoreType'
+  | 'image.parent.internal.mediaType'
+  | 'image.parent.internal.owner'
+  | 'image.parent.internal.type'
+  | 'image.children'
+  | 'image.children.id'
+  | 'image.children.parent.id'
+  | 'image.children.parent.children'
+  | 'image.children.children'
+  | 'image.children.children.id'
+  | 'image.children.children.children'
+  | 'image.children.internal.content'
+  | 'image.children.internal.contentDigest'
+  | 'image.children.internal.description'
+  | 'image.children.internal.fieldOwners'
+  | 'image.children.internal.ignoreType'
+  | 'image.children.internal.mediaType'
+  | 'image.children.internal.owner'
+  | 'image.children.internal.type'
+  | 'image.internal.content'
+  | 'image.internal.contentDigest'
+  | 'image.internal.description'
+  | 'image.internal.fieldOwners'
+  | 'image.internal.ignoreType'
+  | 'image.internal.mediaType'
+  | 'image.internal.owner'
+  | 'image.internal.type'
+  | 'image.filesize'
+  | 'image.publicUrl'
+  | 'image.resize.width'
+  | 'image.resize.height'
+  | 'image.resize.src'
+  | 'image.gatsbyImage'
+  | 'spaceId'
+  | 'createdAt'
+  | 'updatedAt'
+  | 'sys.type'
+  | 'sys.contentType.sys.type'
+  | 'sys.contentType.sys.linkType'
+  | 'sys.contentType.sys.id'
+  | 'sys.revision'
+  | 'parent.id'
+  | 'parent.parent.id'
+  | 'parent.parent.parent.id'
+  | 'parent.parent.parent.children'
+  | 'parent.parent.children'
+  | 'parent.parent.children.id'
+  | 'parent.parent.children.children'
+  | 'parent.parent.internal.content'
+  | 'parent.parent.internal.contentDigest'
+  | 'parent.parent.internal.description'
+  | 'parent.parent.internal.fieldOwners'
+  | 'parent.parent.internal.ignoreType'
+  | 'parent.parent.internal.mediaType'
+  | 'parent.parent.internal.owner'
+  | 'parent.parent.internal.type'
+  | 'parent.children'
+  | 'parent.children.id'
+  | 'parent.children.parent.id'
+  | 'parent.children.parent.children'
+  | 'parent.children.children'
+  | 'parent.children.children.id'
+  | 'parent.children.children.children'
+  | 'parent.children.internal.content'
+  | 'parent.children.internal.contentDigest'
+  | 'parent.children.internal.description'
+  | 'parent.children.internal.fieldOwners'
+  | 'parent.children.internal.ignoreType'
+  | 'parent.children.internal.mediaType'
+  | 'parent.children.internal.owner'
+  | 'parent.children.internal.type'
+  | 'parent.internal.content'
+  | 'parent.internal.contentDigest'
+  | 'parent.internal.description'
+  | 'parent.internal.fieldOwners'
+  | 'parent.internal.ignoreType'
+  | 'parent.internal.mediaType'
+  | 'parent.internal.owner'
+  | 'parent.internal.type'
+  | 'children'
+  | 'children.id'
+  | 'children.parent.id'
+  | 'children.parent.parent.id'
+  | 'children.parent.parent.children'
+  | 'children.parent.children'
+  | 'children.parent.children.id'
+  | 'children.parent.children.children'
+  | 'children.parent.internal.content'
+  | 'children.parent.internal.contentDigest'
+  | 'children.parent.internal.description'
+  | 'children.parent.internal.fieldOwners'
+  | 'children.parent.internal.ignoreType'
+  | 'children.parent.internal.mediaType'
+  | 'children.parent.internal.owner'
+  | 'children.parent.internal.type'
+  | 'children.children'
+  | 'children.children.id'
+  | 'children.children.parent.id'
+  | 'children.children.parent.children'
+  | 'children.children.children'
+  | 'children.children.children.id'
+  | 'children.children.children.children'
+  | 'children.children.internal.content'
+  | 'children.children.internal.contentDigest'
+  | 'children.children.internal.description'
+  | 'children.children.internal.fieldOwners'
+  | 'children.children.internal.ignoreType'
+  | 'children.children.internal.mediaType'
+  | 'children.children.internal.owner'
+  | 'children.children.internal.type'
+  | 'children.internal.content'
+  | 'children.internal.contentDigest'
+  | 'children.internal.description'
+  | 'children.internal.fieldOwners'
+  | 'children.internal.ignoreType'
+  | 'children.internal.mediaType'
+  | 'children.internal.owner'
+  | 'children.internal.type'
+  | 'internal.content'
+  | 'internal.contentDigest'
+  | 'internal.description'
+  | 'internal.fieldOwners'
+  | 'internal.ignoreType'
+  | 'internal.mediaType'
+  | 'internal.owner'
+  | 'internal.type';
+
+type ContentfulOrganizerGroupConnection = {
+  readonly totalCount: Scalars['Int'];
+  readonly edges: ReadonlyArray<ContentfulOrganizerEdge>;
+  readonly nodes: ReadonlyArray<ContentfulOrganizer>;
+  readonly pageInfo: PageInfo;
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly group: ReadonlyArray<ContentfulOrganizerGroupConnection>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+};
+
+
+type ContentfulOrganizerGroupConnection_distinctArgs = {
+  field: ContentfulOrganizerFieldsEnum;
+};
+
+
+type ContentfulOrganizerGroupConnection_maxArgs = {
+  field: ContentfulOrganizerFieldsEnum;
+};
+
+
+type ContentfulOrganizerGroupConnection_minArgs = {
+  field: ContentfulOrganizerFieldsEnum;
+};
+
+
+type ContentfulOrganizerGroupConnection_sumArgs = {
+  field: ContentfulOrganizerFieldsEnum;
+};
+
+
+type ContentfulOrganizerGroupConnection_groupArgs = {
+  skip: Maybe<Scalars['Int']>;
+  limit: Maybe<Scalars['Int']>;
+  field: ContentfulOrganizerFieldsEnum;
+};
+
+type ContentfulOrganizerFilterInput = {
+  readonly contentful_id: Maybe<StringQueryOperatorInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly node_locale: Maybe<StringQueryOperatorInput>;
+  readonly name: Maybe<StringQueryOperatorInput>;
+  readonly title: Maybe<StringQueryOperatorInput>;
+  readonly email: Maybe<StringQueryOperatorInput>;
+  readonly order: Maybe<IntQueryOperatorInput>;
+  readonly image: Maybe<ContentfulAssetFilterInput>;
+  readonly spaceId: Maybe<StringQueryOperatorInput>;
+  readonly createdAt: Maybe<DateQueryOperatorInput>;
+  readonly updatedAt: Maybe<DateQueryOperatorInput>;
+  readonly sys: Maybe<ContentfulOrganizerSysFilterInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+};
+
+type ContentfulOrganizerSortInput = {
+  readonly fields: Maybe<ReadonlyArray<Maybe<ContentfulOrganizerFieldsEnum>>>;
+  readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
+};
+
 type MarkdownRemarkConnection = {
   readonly totalCount: Scalars['Int'];
   readonly edges: ReadonlyArray<MarkdownRemarkEdge>;
@@ -6776,10 +7146,10 @@ type ContentfulContentTypeSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type staticEProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+type staticEProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879Query = { readonly currentBuildDate: Maybe<Pick<CurrentBuildDate, 'currentDate'>> };
 
 type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -6787,7 +7157,10 @@ type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 type IndexQueryQuery = { readonly main: Maybe<(
     Pick<ContentfulParagraph, 'name'>
     & { readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
-  )>, readonly gallery: Maybe<{ readonly images: Maybe<ReadonlyArray<Maybe<Pick<ContentfulAsset, 'url'>>>> }>, readonly gold: Maybe<(
+  )>, readonly gallery: Maybe<{ readonly images: Maybe<ReadonlyArray<Maybe<Pick<ContentfulAsset, 'url'>>>> }>, readonly organizers: { readonly nodes: ReadonlyArray<(
+      Pick<ContentfulOrganizer, 'name' | 'title' | 'email'>
+      & { readonly image: Maybe<Pick<ContentfulAsset, 'gatsbyImageData'>> }
+    )> }, readonly gold: Maybe<(
     Pick<ContentfulSponsorLogo, 'name' | 'link' | 'sponsorshipGrade'>
     & { readonly image: Maybe<(
       Pick<ContentfulAsset, 'gatsbyImageData'>
@@ -6806,16 +7179,6 @@ type IndexQueryQuery = { readonly main: Maybe<(
         & { readonly file: Maybe<Pick<ContentfulAssetFile, 'contentType' | 'url'>>, readonly svg: Maybe<Pick<InlineSvg, 'content' | 'originalContent' | 'dataURI' | 'absolutePath' | 'relativePath'>> }
       )> }
     )> } };
-
-type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type Unnamed_1_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'author' | 'image' | 'favicon'>> }> };
-
-type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type Unnamed_2_Query = { readonly currentBuildDate: Maybe<Pick<CurrentBuildDate, 'currentDate'>> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -6842,5 +7205,15 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type staticEProjectsProgrammingwebkonf2022WebsrccomponentsSeoTsx943528760QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type staticEProjectsProgrammingwebkonf2022WebsrccomponentsSeoTsx943528760Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'author' | 'image' | 'favicon'>> }> };
+
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 }
