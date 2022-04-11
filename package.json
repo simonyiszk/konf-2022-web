@@ -1,6 +1,6 @@
 {
 	"name": "konf-2022-web",
-	"version": "1.4.3",
+	"version": "1.4.4",
 	"private": true,
 	"description": "Website for XIX. Simonyi Konferencia",
 	"homepage": "https://konferencia.simonyi.bme.hu",
@@ -31,10 +31,13 @@
 	],
 	"dependencies": {
 		"@fontsource/dongle": "^4.5.5",
+		"@fontsource/inter": "^4.5.7",
+		"@fontsource/nunito": "^4.5.8",
 		"@mdx-js/mdx": "^1.6.22",
 		"@mdx-js/react": "^1.6.22",
 		"@tailwindcss/aspect-ratio": "^0.4.0",
 		"@types/react": "^17.0.43",
+		"@types/react-image-gallery": "^1.0.5",
 		"autoprefixer": "^10.4.4",
 		"clsx": "^1.1.1",
 		"dotenv": "^16.0.0",
@@ -64,6 +67,7 @@
 		"react-dom": "^17.0.2",
 		"react-helmet": "^6.1.0",
 		"react-icons": "^4.3.1",
+		"react-image-gallery": "^1.2.7",
 		"sass": "^1.49.11",
 		"tailwindcss": "^3.0.23",
 		"tsconfig-paths-webpack-plugin": "^3.5.2"
