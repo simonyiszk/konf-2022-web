@@ -1,6 +1,8 @@
 import { graphql } from "gatsby";
 import * as React from "react";
+import type { ReactImageGalleryItem } from "react-image-gallery";
 
+import { CMSGallery } from "@/components/cmsGallery/CMSGallery";
 import { CMSParagraph } from "@/components/cmsParagraph/CMSParagraph";
 import { Hero } from "@/components/hero/Hero";
 import { Layout } from "@/components/Layout";
@@ -10,6 +12,7 @@ import { SponsorSection } from "@/components/sponsors/SponsorSection";
 type IndexProps = {
 	data: {
 		main?: GatsbyTypes.ContentfulParagraph;
+		gallery?: GatsbyTypes.ContentfulGalleryImages;
 		gold?: GatsbyTypes.ContentfulSponsorLogo;
 		silver: GatsbyTypes.ContentfulSponsorLogoConnection;
 		bronze: GatsbyTypes.ContentfulSponsorLogoConnection;
@@ -17,17 +20,22 @@ type IndexProps = {
 };
 
 export default function IndexPage({ data }: IndexProps) {
+	const { main, gallery, gold, silver, bronze } = data;
+
+	const images: ReactImageGalleryItem[] =
+		gallery?.images?.map((image) => {
+			return { original: image?.url ?? "", thumbnail: image?.url ?? "" };
+		}) ?? [];
 	return (
 		<Layout>
 			<Seo title="2022.04.27." />
 			<Hero />
 
-			<CMSParagraph content={data.main} />
-			<SponsorSection
-				gold={data.gold}
-				silver={data.silver}
-				bronze={data.bronze}
-			/>
+			<CMSParagraph content={main} />
+
+			<CMSGallery images={images} />
+
+			<SponsorSection gold={gold} silver={silver} bronze={bronze} />
 		</Layout>
 	);
 }
@@ -40,6 +48,11 @@ export const query = graphql`
 				childMdx {
 					body
 				}
+			}
+		}
+		gallery: contentfulGalleryImages(name: { eq: "Main" }) {
+			images {
+				url
 			}
 		}
 		gold: contentfulSponsorLogo(sponsorshipGrade: { eq: "főtámogató" }) {
@@ -56,8 +69,8 @@ export const query = graphql`
 					content # SVG content optimized with SVGO
 					originalContent # Original SVG content
 					dataURI # Optimized SVG as compact dataURI
-					absolutePath #
-					relativePath #
+					absolutePath
+					relativePath
 				}
 			}
 		}
@@ -79,8 +92,8 @@ export const query = graphql`
 						content # SVG content optimized with SVGO
 						originalContent # Original SVG content
 						dataURI # Optimized SVG as compact dataURI
-						absolutePath #
-						relativePath #
+						absolutePath
+						relativePath
 					}
 				}
 			}
@@ -103,8 +116,8 @@ export const query = graphql`
 						content # SVG content optimized with SVGO
 						originalContent # Original SVG content
 						dataURI # Optimized SVG as compact dataURI
-						absolutePath #
-						relativePath #
+						absolutePath
+						relativePath
 					}
 				}
 			}
