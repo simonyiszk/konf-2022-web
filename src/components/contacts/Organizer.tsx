@@ -10,12 +10,10 @@ export type OrganizerProps = {
 };
 
 export function Organizer({ name, title, email, image }: OrganizerProps) {
-	console.log(image);
 	if (!image || !image.gatsbyImageData) {
 		return null;
 	}
 	const imageData = getImage(image.gatsbyImageData);
-	console.log("asd");
 	if (!imageData) {
 		return null;
 	}

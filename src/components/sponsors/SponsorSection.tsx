@@ -33,7 +33,7 @@ export function SponsorSection({ gold, silver, bronze }: SponsorProps) {
 							<SponsorLogo
 								key={sponsor.name}
 								{...sponsor}
-								className="w-[202px] h-auto"
+								className="w-[192px] h-auto"
 							/>
 						);
 					})}
@@ -47,7 +47,7 @@ export function SponsorSection({ gold, silver, bronze }: SponsorProps) {
 							<SponsorLogo
 								key={sponsor.name}
 								{...sponsor}
-								className="w-[172px] h-auto"
+								className="w-[158px] h-auto"
 							/>
 						);
 					})}

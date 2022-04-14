@@ -7146,10 +7146,10 @@ type ContentfulContentTypeSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type staticEProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879QueryVariables = Exact<{ [key: string]: never; }>;
+type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type staticEProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879Query = { readonly currentBuildDate: Maybe<Pick<CurrentBuildDate, 'currentDate'>> };
+type Unnamed_1_Query = { readonly currentBuildDate: Maybe<Pick<CurrentBuildDate, 'currentDate'>> };
 
 type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -7180,6 +7180,11 @@ type IndexQueryQuery = { readonly main: Maybe<(
       )> }
     )> } };
 
+type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type Unnamed_2_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'author' | 'image' | 'favicon'>> }> };
+
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
 type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
@@ -7205,11 +7210,6 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type staticEProjectsProgrammingwebkonf2022WebsrccomponentsSeoTsx943528760QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type staticEProjectsProgrammingwebkonf2022WebsrccomponentsSeoTsx943528760Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'author' | 'image' | 'favicon'>> }> };
 
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

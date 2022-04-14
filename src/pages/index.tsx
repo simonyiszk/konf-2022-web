@@ -5,7 +5,6 @@ import type { ReactImageGalleryItem } from "react-image-gallery";
 import { CMSGallery } from "@/components/cmsGallery/CMSGallery";
 import { CMSParagraph } from "@/components/cmsParagraph/CMSParagraph";
 import { Contacts } from "@/components/contacts/Contacts";
-import { Organizer } from "@/components/contacts/Organizer";
 import { Hero } from "@/components/hero/Hero";
 import { Layout } from "@/components/Layout";
 import { Seo } from "@/components/Seo";

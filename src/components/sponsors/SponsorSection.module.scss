@@ -1,5 +1,5 @@
 .section {
-	@apply text-center bg-white text-black pt-8 grid gap-3 px-8 gap-x-20 pb-8;
+	@apply text-center bg-white text-black pt-8 grid gap-3 px-8 pb-8;
 	grid-template-columns: 1fr;
 
 	h3 {
@@ -15,6 +15,7 @@
 	}
 
 	@screen 2xl {
+		@apply gap-x-6;
 		grid-template-columns: 1fr 1fr 1fr;
 		h3 {
 			@apply col-span-3;
