@@ -1,0 +1,54 @@
+.card {
+	@apply text-white font-Roboto bg-blue-dark rounded-md relative;
+	@screen sm {
+		@apply max-w-screen-sm;
+	}
+	max-width: 90vw;
+
+	& > span {
+		width: calc((128px / 2));
+	}
+}
+
+.container {
+	@apply relative p-3 grid gap-4 items-center;
+	@screen sm {
+		@apply p-8;
+	}
+	@screen lg {
+		@apply p-12;
+	}
+	@apply justify-items-center;
+	grid-template-columns: auto 1fr;
+}
+
+.image {
+	@apply rounded-full w-52 h-52;
+}
+
+.imageContainer {
+	@apply col-span-2;
+	@screen sm {
+		@apply col-span-1;
+	}
+
+	width: fit-content;
+	max-width: 208px;
+	height: fit-content;
+	max-height: 208px;
+}
+
+.content {
+	@apply col-span-2 mt-4;
+	font-size: 15px;
+}
+
+.underlinedH3 {
+	& h3 {
+		&::after {
+			@apply border-t-2 border-yellow rounded-full block w-full;
+			content: "";
+			margin-top: 0;
+		}
+	}
+}
