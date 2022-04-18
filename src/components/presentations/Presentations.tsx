@@ -4,26 +4,29 @@ import * as React from "react";
 import YouTube from "react-youtube";
 
 import { useWindowDimensions } from "@/utils/hooks";
+import { orderEntriesByDate } from "@/utils/utils";
 
 import { BreakCard } from "./BreakCard";
 import { PresentationCard } from "./PresentationCard";
-import styles from "./Presentations.module.scss";
+import * as styles from "./Presentations.module.scss";
 
 type PresentationsProps = {
-	presentations: (
-		| (IPresentation & { mdxSource: MdxRemote.Source })
-		| (IBreak & { mdxSource: MdxRemote.Source })
-	)[];
+	presentations: GatsbyTypes.ContentfulPresentationConnection;
+	breaks: GatsbyTypes.ContentfulBreakConnection;
 };
 
-export function Presentations({ presentations }: PresentationsProps) {
+export function Presentations({ presentations, breaks }: PresentationsProps) {
 	const [heights, setHeights] = useState<number[]>([]);
 
 	const [side, setSide] = useState(false);
 
 	const { width } = useWindowDimensions();
 
-	const refs = presentations.map(() => createRef<HTMLDivElement>());
+	const combined = [...breaks.nodes, ...presentations.nodes];
+	combined.sort(orderEntriesByDate);
+
+	const refs = combined.map(() => createRef<HTMLDivElement>());
+
 	const containerRef = createRef<HTMLDivElement>();
 
 	function easeInOutQuad(t: number, b: number, c: number, d: number) {
@@ -68,7 +71,7 @@ export function Presentations({ presentations }: PresentationsProps) {
 	}, [width]);
 
 	return (
-		<section className={clsx(styles.section, "scroll-margin")} id="eloadasok">
+		<section className={clsx(styles.section)} id="eloadasok">
 			<h2 className="mb-8 text-4xl font-semibold text-center">Előadások</h2>
 			<div className="mb-10 text-2xl text-center">
 				<p>Az előadások idén online lesznek közvetítve.</p>
@@ -80,12 +83,16 @@ export function Presentations({ presentations }: PresentationsProps) {
 						styles.button,
 						styles.button1,
 						side === false
-							? "ring-4 text-teal bg-blue ring-teal"
-							: "text-blue bg-teal",
+							? "text-teal-500 bg-blue-500 ring-4 ring-teal-500"
+							: "text-blue-500 bg-teal-500",
 					)}
 					type="button"
 					onClick={() => {
-						scrollLeft(-2000, 250, false);
+						scrollLeft(
+							(containerRef.current?.scrollWidth ?? 2000) * -0.66,
+							250,
+							false,
+						);
 					}}
 				>
 					IB025
@@ -95,12 +102,16 @@ export function Presentations({ presentations }: PresentationsProps) {
 						styles.button,
 						styles.button2,
 						side === true
-							? "ring-4 text-green bg-blue ring-green"
-							: "text-blue bg-green",
+							? "text-green-500 bg-blue-500 ring-4 ring-green-500"
+							: "text-blue-500 bg-green-500",
 					)}
 					type="button"
 					onClick={() => {
-						scrollLeft(2000, 250, true);
+						scrollLeft(
+							(containerRef.current?.scrollWidth ?? 2000) * 0.66,
+							250,
+							true,
+						);
 					}}
 				>
 					IB026
@@ -129,54 +140,48 @@ export function Presentations({ presentations }: PresentationsProps) {
 						/>
 					</div>
 
-					{presentations.map((entry, i) => {
-						const content = hydrate(entry.mdxSource, {
-							components: { h5: H5, h3: H3, br: Br },
-						});
-						if (entry.sys.contentType.sys.id === "presentation") {
-							const local = entry as IPresentation;
-							const imageUrl = local.fields.image
-								? `https:${local.fields.image.fields.file.url}`
-								: "/assets/images/blank.png";
+					{combined.map((entry, i) => {
+						if (entry.sys?.contentType?.sys?.id === "presentation") {
+							const local = entry as GatsbyTypes.ContentfulPresentation;
 
 							return (
 								<PresentationCard
-									key={local.fields.name}
-									{...local.fields}
-									isLeft={local.fields.side === "left"}
-									imageURL={imageUrl}
+									key={local.name}
+									{...local}
+									isLeft={local.room === "IB028"}
 									className={clsx(
-										local.fields.side === "left" ? "ml-auto" : "mr-auto",
+										local.room === "IB028" ? "ml-auto" : "mr-auto",
 									)}
 									ref={refs[i]}
 								>
-									{content}
+									{local.description?.childMdx?.body ?? ""}
 								</PresentationCard>
 							);
 						}
-						if (entry.sys.contentType.sys.id === "break") {
-							const local = entry as IBreak;
+						if (entry.sys?.contentType?.sys?.id === "break") {
+							const local = entry as GatsbyTypes.ContentfulBreak;
+
 							return (
 								<BreakCard
-									key={`${local.fields.startDate}+${local.fields.side}`}
-									{...local.fields}
-									isLeft={local.fields.side === "left"}
+									key={`${local.startDate}+${local.room}`}
+									{...local}
+									isLeft={local.room === "IB028"}
 									className={clsx(
-										local.fields.side === "left" ? "ml-auto" : "mr-auto",
+										local.room === "IB028" ? "ml-auto" : "mr-auto",
 									)}
 									ref={refs[i]}
 								>
-									{content}
+									{local.text?.childMdx?.body ?? ""}
 								</BreakCard>
 							);
 						}
 						return null;
 					})}
 					<div className="grid grid-cols-2 col-span-2 justify-items-center w-full">
-						<div className="z-10 p-1 -mb-4 w-16 text-lg font-semibold text-center rounded-md sm:col-span-2 text-blue bg-yellow">
+						<div className="z-10 p-1 -mb-4 w-16 text-lg font-semibold text-center text-blue-500 bg-yellow-500 rounded-md sm:col-span-2">
 							18:00
 						</div>
-						<div className="z-10 p-1 -mb-4 w-16 text-lg font-semibold text-center rounded-md sm:hidden text-blue bg-yellow">
+						<div className="z-10 p-1 -mb-4 w-16 text-lg font-semibold text-center text-blue-500 bg-yellow-500 rounded-md sm:hidden">
 							18:00
 						</div>
 					</div>
