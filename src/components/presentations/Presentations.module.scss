@@ -1,0 +1,74 @@
+.container {
+	@screen sm {
+		min-width: 150vw;
+	}
+	@screen md {
+		min-width: 130vw;
+	}
+	@screen xl {
+		min-width: revert;
+	}
+	min-width: 190vw;
+}
+
+.section {
+	@apply p-3 mt-8 relative;
+}
+
+.button {
+	@apply z-20 p-3 hover:text-green-500 text-2xl font-bold hover:bg-blue-500 rounded-md focus:outline-none;
+}
+
+.button1 {
+	@screen xl {
+		@apply text-blue-500 bg-teal-500 hover:text-blue-500 hover:bg-teal-500 ring-0 cursor-default;
+	}
+}
+.button2 {
+	@screen xl {
+		@apply text-blue-500 bg-green-500 hover:text-blue-500 hover:bg-green-500 ring-0 cursor-default;
+	}
+}
+
+.overflow {
+	overflow-x: auto;
+}
+
+.timelineBG {
+	@apply absolute h-full hidden;
+	@screen sm {
+		@apply block;
+	}
+	left: calc(50% - (128px / 2));
+	width: 128px;
+}
+
+.timeline {
+	@apply absolute h-full border-r-2 border-dashed border-blue-900 hidden;
+	@screen sm {
+		@apply block;
+	}
+	left: calc(50% - 1px);
+}
+
+.time {
+	@apply absolute hidden;
+	left: calc(50% - 8px);
+	&::before {
+		@apply rounded-full bg-yellow-500;
+		content: "";
+		display: block;
+		width: 16px;
+		height: 16px;
+	}
+	// @screen sm {
+	// 	@apply block;
+	// }
+}
+
+.video {
+	@apply w-full;
+	@screen sm {
+		@apply max-w-screen-sm;
+	}
+}

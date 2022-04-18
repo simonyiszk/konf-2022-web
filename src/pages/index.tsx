@@ -4,15 +4,20 @@ import type { ReactImageGalleryItem } from "react-image-gallery";
 
 import { CMSGallery } from "@/components/cmsGallery/CMSGallery";
 import { CMSParagraph } from "@/components/cmsParagraph/CMSParagraph";
+import { Contacts } from "@/components/contacts/Contacts";
 import { Hero } from "@/components/hero/Hero";
 import { Layout } from "@/components/Layout";
+import { Presentations } from "@/components/presentations/Presentations";
 import { Seo } from "@/components/Seo";
 import { SponsorSection } from "@/components/sponsors/SponsorSection";
 
 type IndexProps = {
 	data: {
+		presentations: GatsbyTypes.ContentfulPresentationConnection;
+		breaks: GatsbyTypes.ContentfulBreakConnection;
 		main?: GatsbyTypes.ContentfulParagraph;
 		gallery?: GatsbyTypes.ContentfulGalleryImages;
+		organizers: GatsbyTypes.ContentfulOrganizerConnection;
 		gold?: GatsbyTypes.ContentfulSponsorLogo;
 		silver: GatsbyTypes.ContentfulSponsorLogoConnection;
 		bronze: GatsbyTypes.ContentfulSponsorLogoConnection;
@@ -20,7 +25,16 @@ type IndexProps = {
 };
 
 export default function IndexPage({ data }: IndexProps) {
-	const { main, gallery, gold, silver, bronze } = data;
+	const {
+		presentations,
+		breaks,
+		main,
+		gallery,
+		organizers,
+		gold,
+		silver,
+		bronze,
+	} = data;
 
 	const images: ReactImageGalleryItem[] =
 		gallery?.images?.map((image) => {
@@ -31,9 +45,13 @@ export default function IndexPage({ data }: IndexProps) {
 			<Seo title="2022.04.27." />
 			<Hero />
 
+			{/* <Presentations presentations={presentations} breaks={breaks} /> */}
+
 			<CMSParagraph content={main} />
 
 			<CMSGallery images={images} />
+
+			<Contacts organizers={organizers.nodes} />
 
 			<SponsorSection gold={gold} silver={silver} bronze={bronze} />
 		</Layout>
@@ -42,6 +60,51 @@ export default function IndexPage({ data }: IndexProps) {
 
 export const query = graphql`
 	query IndexQuery {
+		presentations: allContentfulPresentation {
+			nodes {
+				room
+				title
+				name
+				profession
+				startDate
+				endDate
+				image {
+					gatsbyImageData
+				}
+				description {
+					childMdx {
+						body
+					}
+				}
+				videoLink
+				sys {
+					contentType {
+						sys {
+							id
+						}
+					}
+				}
+			}
+		}
+		breaks: allContentfulBreak {
+			nodes {
+				startDate
+				endDate
+				room
+				text {
+					childMdx {
+						body
+					}
+				}
+				sys {
+					contentType {
+						sys {
+							id
+						}
+					}
+				}
+			}
+		}
 		main: contentfulParagraph(name: { eq: "Main" }) {
 			name
 			content {
@@ -53,6 +116,16 @@ export const query = graphql`
 		gallery: contentfulGalleryImages(name: { eq: "Main" }) {
 			images {
 				url
+			}
+		}
+		organizers: allContentfulOrganizer(sort: { fields: order, order: ASC }) {
+			nodes {
+				name
+				title
+				email
+				image {
+					gatsbyImageData
+				}
 			}
 		}
 		gold: contentfulSponsorLogo(sponsorshipGrade: { eq: "főtámogató" }) {
