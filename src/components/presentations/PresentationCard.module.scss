@@ -1,5 +1,5 @@
 .card {
-	@apply text-white bg-blue-900 rounded-md relative;
+	@apply text-white bg-gray-800 rounded-md relative;
 	@screen sm {
 		@apply max-w-screen-sm;
 	}
@@ -46,7 +46,7 @@
 .underlinedH3 {
 	& h3 {
 		&::after {
-			@apply border-t-2 border-yellow-500 rounded-full block w-full;
+			@apply border-t-2 border-yellow-300 rounded-full block w-full;
 			content: "";
 			margin-top: 0;
 		}

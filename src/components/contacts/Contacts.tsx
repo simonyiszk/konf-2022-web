@@ -18,7 +18,9 @@ export function Contacts({ organizers }: ContactsProps) {
 						email: organizer.email ?? "",
 						image: organizer.image,
 					};
-					return <Organizer key={organizer.id} {...checkedOrganizer} />;
+					return (
+						<Organizer key={checkedOrganizer.name} {...checkedOrganizer} />
+					);
 				})}
 			</div>
 		</section>

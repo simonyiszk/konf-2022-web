@@ -73,42 +73,42 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 	return (
 		<section className={clsx(styles.section)} id="eloadasok">
 			<h2 className="mb-8 text-4xl font-semibold text-center">Előadások</h2>
-			<div className="mb-10 text-2xl text-center">
+			{/* <div className="mb-10 text-2xl text-center">
 				<p>Az előadások idén online lesznek közvetítve.</p>
 				<p>A platformot a Regisztráció gombra kattintva lehet elérni.</p>
-			</div>
+			</div> */}
 			<div className="flex sticky top-24 z-20 flex-row justify-evenly rounded-b-md xl:static">
 				<button
 					className={clsx(
 						styles.button,
 						styles.button1,
 						side === false
-							? "text-teal-500 bg-blue-500 ring-4 ring-teal-500"
-							: "text-blue-500 bg-teal-500",
+							? "text-yellow-200 bg-gray-900 ring-4 ring-yellow-200"
+							: "text-gray-900 bg-yellow-200",
 					)}
 					type="button"
 					onClick={() => {
 						scrollLeft(
-							(containerRef.current?.scrollWidth ?? 2000) * -0.66,
+							(containerRef.current?.scrollWidth ?? 2000) * -0.55,
 							250,
 							false,
 						);
 					}}
 				>
-					IB025
+					IB028
 				</button>
 				<button
 					className={clsx(
 						styles.button,
 						styles.button2,
 						side === true
-							? "text-green-500 bg-blue-500 ring-4 ring-green-500"
-							: "text-blue-500 bg-green-500",
+							? "text-blue-200 bg-gray-900 ring-4 ring-blue-200"
+							: "text-gray-900 bg-blue-200",
 					)}
 					type="button"
 					onClick={() => {
 						scrollLeft(
-							(containerRef.current?.scrollWidth ?? 2000) * 0.66,
+							(containerRef.current?.scrollWidth ?? 2000) * 0.55,
 							250,
 							true,
 						);
@@ -117,17 +117,21 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 					IB026
 				</button>
 			</div>
-			<div className="overflow-x-auto" id="scroll" ref={containerRef}>
+			<div
+				className={clsx(styles.scrollSnap, "overflow-x-auto")}
+				id="scroll"
+				ref={containerRef}
+			>
 				<div
 					className={clsx(
 						styles.container,
-						"grid relative grid-cols-2 gap-x-8 justify-items-center my-8 mx-auto sm:gap-16 sm:gap-x-32",
+						"grid relative grid-cols-2 gap-8 gap-x-8 justify-items-center my-8 mx-auto sm:gap-16 sm:gap-x-32",
 					)}
 				>
 					<div className={styles.timeline} />
 					<div className={styles.time} />
 
-					<div className={clsx(styles.video, "ml-auto")}>
+					{/* <div className={clsx(styles.video, "ml-auto")}>
 						<YouTube
 							videoId="decGVnT9Rj4"
 							containerClassName="aspect-w-16 aspect-h-9"
@@ -138,11 +142,12 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 							videoId="2I2uirLBb68"
 							containerClassName="aspect-w-16 aspect-h-9"
 						/>
-					</div>
+					</div> */}
 
 					{combined.map((entry, i) => {
 						if (entry.sys?.contentType?.sys?.id === "presentation") {
 							const local = entry as GatsbyTypes.ContentfulPresentation;
+							if (local.title?.includes("test")) return null;
 
 							return (
 								<PresentationCard
@@ -178,14 +183,23 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 						return null;
 					})}
 					<div className="grid grid-cols-2 col-span-2 justify-items-center w-full">
-						<div className="z-10 p-1 -mb-4 w-16 text-lg font-semibold text-center text-blue-500 bg-yellow-500 rounded-md sm:col-span-2">
-							18:00
+						<div className="z-10 p-1 -mb-4 w-16 text-lg font-semibold text-center text-gray-900 bg-[#f07e46] rounded-md sm:col-span-2">
+							19:00
 						</div>
-						<div className="z-10 p-1 -mb-4 w-16 text-lg font-semibold text-center text-blue-500 bg-yellow-500 rounded-md sm:hidden">
-							18:00
+						<div className="z-10 p-1 -mb-4 w-16 text-lg font-semibold text-center text-gray-900 bg-[#f07e46] rounded-md sm:hidden">
+							19:00
 						</div>
 					</div>
 				</div>
+			</div>
+			<div>
+				<h3 className="mb-8 text-2xl font-semibold text-center">
+					Eredményhirdetés
+				</h3>
+				{/* <div className="mb-10 text-lg text-center">
+					<p>Az előadások idén online lesznek közvetítve.</p>
+					<p>A platformot a Regisztráció gombra kattintva lehet elérni.</p>
+				</div> */}
 			</div>
 		</section>
 	);
