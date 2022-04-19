@@ -13,8 +13,9 @@ import * as styles from "./PresentationCard.module.scss";
 
 type PresentationCardProps = {
 	isLeft: boolean;
-} & Omit<GatsbyTypes.ContentfulPresentation, "children"> &
-	React.HTMLProps<HTMLDivElement>;
+	children: string & React.ReactNode;
+} & Omit<React.HTMLProps<HTMLDivElement>, "children"> &
+	Omit<GatsbyTypes.ContentfulPresentation, "children">;
 
 function presentationCard(
 	{
@@ -39,8 +40,12 @@ function presentationCard(
 		return null;
 	}
 	const startDateObj = new Date(startDate ?? "");
-	const endDateObj = new Date(endDate ?? "");
+	const endDateObj = new Date(endDate ?? startDate ?? "");
 	const stamp = tinydate("{HH}:{mm}");
+	if (stamp(endDateObj) === stamp(startDateObj)) {
+		// endDateObj.setHours(startDateObj.getHours());
+		endDateObj.setMinutes(startDateObj.getMinutes() + 30);
+	}
 
 	const ytId = parseYoutubeIdFromLink(videoLink ?? "");
 
@@ -48,7 +53,7 @@ function presentationCard(
 		<motion.figure className={clsx(styles.card, className)} ref={ref}>
 			<span
 				className={clsx(
-					"hidden absolute top-0 p-1 text-lg font-semibold text-center text-blue-500 bg-yellow-500 rounded-md sm:inline-block",
+					"hidden absolute top-0 p-1 text-lg font-semibold text-center text-gray-900 bg-[#f07e46] rounded-md sm:inline-block",
 					!isLeft && "sm:hidden",
 				)}
 				style={{
@@ -70,17 +75,17 @@ function presentationCard(
 					<h3
 						className={clsx(
 							"mb-3 text-xl font-bold",
-							isLeft === true ? "text-teal-500" : "text-green-500",
+							isLeft === true ? "text-yellow-200" : "text-blue-200",
 						)}
 					>
 						{title}
 					</h3>
 					<h4 className="mb-1 text-sm uppercase">
-						<span className="text-red-500">{name}</span> -{" "}
+						<span className="text-[#f07e46]">{name}</span> -{" "}
 						{profession ?? "ErrNo: Profession"}
 					</h4>
-					{startDate && endDate && (
-						<h5 className="font-bold text-yellow-500">
+					{startDateObj && endDateObj && (
+						<h5 className="font-bold text-[#6abd51]">
 							{stamp(startDateObj)}-{stamp(endDateObj)}
 						</h5>
 					)}
@@ -94,8 +99,7 @@ function presentationCard(
 					</div>
 				)}
 				<div className={styles.content}>
-					{/* @ts-expect-error: wat */}
-					{children && <MDXRenderer>{children}</MDXRenderer>}
+					<MDXRenderer>{children}</MDXRenderer>
 				</div>
 			</div>
 		</motion.figure>

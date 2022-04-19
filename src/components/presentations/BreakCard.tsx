@@ -9,7 +9,8 @@ import * as styles from "./PresentationCard.module.scss";
 
 type BreakCardProps = {
 	isLeft: boolean;
-} & React.HTMLProps<HTMLDivElement> &
+	children: string & React.ReactNode;
+} & Omit<React.HTMLProps<HTMLDivElement>, "children"> &
 	Omit<GatsbyTypes.ContentfulBreak, "children">;
 
 function breakCard(
@@ -29,7 +30,7 @@ function breakCard(
 				>
 					<span
 						className={clsx(
-							"hidden absolute top-0 p-1 text-lg font-semibold text-center text-blue-500 bg-yellow-500 rounded-md sm:inline-block",
+							"hidden absolute top-0 p-1 text-lg font-semibold text-center text-gray-900 bg-[#f07e46] rounded-md sm:inline-block",
 							!isLeft && "sm:hidden",
 						)}
 						style={{
@@ -43,12 +44,12 @@ function breakCard(
 							className={clsx(
 								styles.content,
 								"font-semibold",
-								isLeft ? "text-teal-500" : "text-green-500",
+								isLeft ? "text-yellow-200" : "text-blue-200",
 							)}
 						>
-							{children}
+							<MDXRenderer>{children}</MDXRenderer>
 						</div>
-						<h5 className="col-span-2 -mt-3 mb-4 font-bold text-center text-yellow-500">
+						<h5 className="col-span-2 -mt-3 mb-4 font-bold text-center text-white">
 							{stamp(startDateObj)}-{stamp(endDateObj)}
 						</h5>
 					</div>
@@ -62,7 +63,7 @@ function breakCard(
 					ref={ref}
 				>
 					<div className="flex flex-col items-center sm:col-span-2">
-						<div className="p-1 mb-4 w-16 text-lg font-semibold text-center text-blue-500 bg-yellow-500 rounded-md">
+						<div className="p-1 mb-4 w-16 text-lg font-semibold text-center text-gray-900 bg-[#f07e46] rounded-md">
 							{stamp(startDateObj)}
 						</div>
 						<div
@@ -72,11 +73,11 @@ function breakCard(
 								"font-semibold text-center",
 							)}
 						>
-							{children}
+							<MDXRenderer>{children}</MDXRenderer>
 						</div>
 					</div>
 					<div className="flex flex-col items-center sm:hidden">
-						<div className="p-1 mb-4 w-16 text-lg font-semibold text-center text-blue-500 bg-yellow-500 rounded-md">
+						<div className="p-1 mb-4 w-16 text-lg font-semibold text-center text-gray-900 bg-[#f07e46] rounded-md">
 							{stamp(startDateObj)}
 						</div>
 						<div
@@ -86,8 +87,7 @@ function breakCard(
 								"font-semibold text-center",
 							)}
 						>
-							{/* @ts-expect-error: wat */}
-							{children && <MDXRenderer>{children}</MDXRenderer>}
+							<MDXRenderer>{children}</MDXRenderer>
 						</div>
 					</div>
 				</motion.figure>
