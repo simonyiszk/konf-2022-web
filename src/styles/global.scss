@@ -17,3 +17,9 @@ body {
 
 	font-family: "Nunito", sans-serif;
 }
+
+html,
+body,
+main {
+	@apply scroll-m-20 scroll-p-20;
+}
