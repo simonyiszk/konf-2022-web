@@ -1,0 +1,30 @@
+.header {
+	@apply sticky top-0 z-40 flex flex-wrap items-center justify-between w-full text-white;
+
+	margin-top: calc(-100vh + -83px);
+	margin-bottom: calc(100vh + -83px);
+
+	@screen sm {
+		@apply p-0;
+		margin-top: calc(-100vh + -104px);
+		margin-bottom: calc(100vh + -104px);
+	}
+
+	& > div {
+		@apply m-2 sm:m-4 rounded-lg;
+		background-color: rgba(255, 255, 255, 0.2);
+		backdrop-filter: blur(10px);
+	}
+}
+
+.navlink {
+	outline: none;
+
+	& > p::after {
+		@apply border-t-2 border-yellow-200 rounded-full block;
+		content: "";
+		width: var(--after-w);
+		margin-top: 0;
+		will-change: width;
+	}
+}

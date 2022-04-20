@@ -7,14 +7,15 @@ import { CMSParagraph } from "@/components/cmsParagraph/CMSParagraph";
 import { Contacts } from "@/components/contacts/Contacts";
 import { Hero } from "@/components/hero/Hero";
 import { Layout } from "@/components/Layout";
+import { Navbar } from "@/components/navbar/Navbar";
 import { Presentations } from "@/components/presentations/Presentations";
 import { Seo } from "@/components/Seo";
 import { SponsorSection } from "@/components/sponsors/SponsorSection";
 
 type IndexProps = {
 	data: {
-		// presentations: GatsbyTypes.ContentfulPresentationConnection;
-		// breaks: GatsbyTypes.ContentfulBreakConnection;
+		presentations: GatsbyTypes.ContentfulPresentationConnection;
+		breaks: GatsbyTypes.ContentfulBreakConnection;
 		main?: GatsbyTypes.ContentfulParagraph;
 		gallery?: GatsbyTypes.ContentfulGalleryImages;
 		organizers: GatsbyTypes.ContentfulOrganizerConnection;
@@ -26,8 +27,8 @@ type IndexProps = {
 
 export default function IndexPage({ data }: IndexProps) {
 	const {
-		// presentations,
-		// breaks,
+		presentations,
+		breaks,
 		main,
 		gallery,
 		organizers,
@@ -43,9 +44,12 @@ export default function IndexPage({ data }: IndexProps) {
 	return (
 		<Layout>
 			<Seo title="2022.04.27." />
+
 			<Hero />
 
-			{/* <Presentations presentations={presentations} breaks={breaks} /> */}
+			<Navbar />
+
+			<Presentations presentations={presentations} breaks={breaks} />
 
 			<CMSParagraph content={main} />
 
@@ -60,51 +64,51 @@ export default function IndexPage({ data }: IndexProps) {
 
 export const query = graphql`
 	query IndexQuery {
-		# presentations: allContentfulPresentation {
-		# 	nodes {
-		# 		room
-		# 		title
-		# 		name
-		# 		profession
-		# 		startDate
-		# 		endDate
-		# 		image {
-		# 			gatsbyImageData
-		# 		}
-		# 		description {
-		# 			childMdx {
-		# 				body
-		# 			}
-		# 		}
-		# 		videoLink
-		# 		sys {
-		# 			contentType {
-		# 				sys {
-		# 					id
-		# 				}
-		# 			}
-		# 		}
-		# 	}
-		# }
-		# breaks: allContentfulBreak {
-		# 	nodes {
-		# 		startDate
-		# 		endDate
-		# 		room
-		# 		text {
-		# 			childMdx {
-		# 				body
-		# 			}
-		# 		}
-		# 		sys {
-		# 			contentType {
-		# 				sys {
-		# 					id
-		# 				}
-		# 			}
-		# 		}
-		# 	}
-		# }
+		presentations: allContentfulPresentation {
+			nodes {
+				room
+				title
+				name
+				profession
+				startDate
+				endDate
+				image {
+					gatsbyImageData
+				}
+				description {
+					childMdx {
+						body
+					}
+				}
+				videoLink
+				sys {
+					contentType {
+						sys {
+							id
+						}
+					}
+				}
+			}
+		}
+		breaks: allContentfulBreak {
+			nodes {
+				startDate
+				endDate
+				room
+				text {
+					childMdx {
+						body
+					}
+				}
+				sys {
+					contentType {
+						sys {
+							id
+						}
+					}
+				}
+			}
+		}
 		main: contentfulParagraph(name: { eq: "Main" }) {
 			name
 			content {

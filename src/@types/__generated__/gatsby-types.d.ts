@@ -766,8 +766,8 @@ type ContentfulOrganizer_updatedAtArgs = {
 
 type ContentfulOrganizerSys = {
   readonly type: Maybe<Scalars['String']>;
-  readonly contentType: Maybe<ContentfulOrganizerSysContentType>;
   readonly revision: Maybe<Scalars['Int']>;
+  readonly contentType: Maybe<ContentfulOrganizerSysContentType>;
 };
 
 type ContentfulOrganizerSysContentType = {
@@ -789,13 +789,13 @@ type ContentfulPresentation = ContentfulReference & ContentfulEntry & Node & {
   readonly name: Maybe<Scalars['String']>;
   readonly profession: Maybe<Scalars['String']>;
   readonly startDate: Maybe<Scalars['Date']>;
+  readonly endDate: Maybe<Scalars['Date']>;
   readonly image: Maybe<ContentfulAsset>;
   readonly description: Maybe<contentfulPresentationDescriptionTextNode>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly createdAt: Maybe<Scalars['Date']>;
   readonly updatedAt: Maybe<Scalars['Date']>;
   readonly sys: Maybe<ContentfulPresentationSys>;
-  readonly endDate: Maybe<Scalars['Date']>;
   readonly videoLink: Maybe<Scalars['String']>;
   /** Returns all children nodes filtered by type contentfulPresentationDescriptionTextNode */
   readonly childrenContentfulPresentationDescriptionTextNode: Maybe<ReadonlyArray<Maybe<contentfulPresentationDescriptionTextNode>>>;
@@ -815,6 +815,14 @@ type ContentfulPresentation_startDateArgs = {
 };
 
 
+type ContentfulPresentation_endDateArgs = {
+  formatString: Maybe<Scalars['String']>;
+  fromNow: Maybe<Scalars['Boolean']>;
+  difference: Maybe<Scalars['String']>;
+  locale: Maybe<Scalars['String']>;
+};
+
+
 type ContentfulPresentation_createdAtArgs = {
   formatString: Maybe<Scalars['String']>;
   fromNow: Maybe<Scalars['Boolean']>;
@@ -824,14 +832,6 @@ type ContentfulPresentation_createdAtArgs = {
 
 
 type ContentfulPresentation_updatedAtArgs = {
-  formatString: Maybe<Scalars['String']>;
-  fromNow: Maybe<Scalars['Boolean']>;
-  difference: Maybe<Scalars['String']>;
-  locale: Maybe<Scalars['String']>;
-};
-
-
-type ContentfulPresentation_endDateArgs = {
   formatString: Maybe<Scalars['String']>;
   fromNow: Maybe<Scalars['Boolean']>;
   difference: Maybe<Scalars['String']>;
@@ -1848,13 +1848,13 @@ type Query_contentfulPresentationArgs = {
   name: Maybe<StringQueryOperatorInput>;
   profession: Maybe<StringQueryOperatorInput>;
   startDate: Maybe<DateQueryOperatorInput>;
+  endDate: Maybe<DateQueryOperatorInput>;
   image: Maybe<ContentfulAssetFilterInput>;
   description: Maybe<contentfulPresentationDescriptionTextNodeFilterInput>;
   spaceId: Maybe<StringQueryOperatorInput>;
   createdAt: Maybe<DateQueryOperatorInput>;
   updatedAt: Maybe<DateQueryOperatorInput>;
   sys: Maybe<ContentfulPresentationSysFilterInput>;
-  endDate: Maybe<DateQueryOperatorInput>;
   videoLink: Maybe<StringQueryOperatorInput>;
   childrenContentfulPresentationDescriptionTextNode: Maybe<contentfulPresentationDescriptionTextNodeFilterListInput>;
   childContentfulPresentationDescriptionTextNode: Maybe<contentfulPresentationDescriptionTextNodeFilterInput>;
@@ -5770,8 +5770,8 @@ type ContentfulGalleryImagesSortInput = {
 
 type ContentfulOrganizerSysFilterInput = {
   readonly type: Maybe<StringQueryOperatorInput>;
-  readonly contentType: Maybe<ContentfulOrganizerSysContentTypeFilterInput>;
   readonly revision: Maybe<IntQueryOperatorInput>;
+  readonly contentType: Maybe<ContentfulOrganizerSysContentTypeFilterInput>;
 };
 
 type ContentfulOrganizerSysContentTypeFilterInput = {
@@ -5905,10 +5905,10 @@ type ContentfulOrganizerFieldsEnum =
   | 'createdAt'
   | 'updatedAt'
   | 'sys.type'
+  | 'sys.revision'
   | 'sys.contentType.sys.type'
   | 'sys.contentType.sys.linkType'
   | 'sys.contentType.sys.id'
-  | 'sys.revision'
   | 'parent.id'
   | 'parent.parent.id'
   | 'parent.parent.parent.id'
@@ -6149,6 +6149,7 @@ type ContentfulPresentationFieldsEnum =
   | 'name'
   | 'profession'
   | 'startDate'
+  | 'endDate'
   | 'image.contentful_id'
   | 'image.id'
   | 'image.gatsbyImageData'
@@ -6380,7 +6381,6 @@ type ContentfulPresentationFieldsEnum =
   | 'sys.contentType.sys.type'
   | 'sys.contentType.sys.linkType'
   | 'sys.contentType.sys.id'
-  | 'endDate'
   | 'videoLink'
   | 'childrenContentfulPresentationDescriptionTextNode'
   | 'childrenContentfulPresentationDescriptionTextNode.id'
@@ -6839,13 +6839,13 @@ type ContentfulPresentationFilterInput = {
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly profession: Maybe<StringQueryOperatorInput>;
   readonly startDate: Maybe<DateQueryOperatorInput>;
+  readonly endDate: Maybe<DateQueryOperatorInput>;
   readonly image: Maybe<ContentfulAssetFilterInput>;
   readonly description: Maybe<contentfulPresentationDescriptionTextNodeFilterInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
   readonly createdAt: Maybe<DateQueryOperatorInput>;
   readonly updatedAt: Maybe<DateQueryOperatorInput>;
   readonly sys: Maybe<ContentfulPresentationSysFilterInput>;
-  readonly endDate: Maybe<DateQueryOperatorInput>;
   readonly videoLink: Maybe<StringQueryOperatorInput>;
   readonly childrenContentfulPresentationDescriptionTextNode: Maybe<contentfulPresentationDescriptionTextNodeFilterListInput>;
   readonly childContentfulPresentationDescriptionTextNode: Maybe<contentfulPresentationDescriptionTextNodeFilterInput>;
@@ -9763,10 +9763,41 @@ type ContentfulContentTypeSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type staticEProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879QueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+type staticEProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879Query = { readonly currentBuildDate: Maybe<Pick<CurrentBuildDate, 'currentDate'>> };
+
+type staticEProjectsProgrammingwebkonf2022WebsrccomponentsSeoTsx943528760QueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type staticEProjectsProgrammingwebkonf2022WebsrccomponentsSeoTsx943528760Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'author' | 'image' | 'favicon'>> }> };
+
+type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpFixed_withWebpFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
+
+type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
+
+type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
+
+type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
+
+type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
 
 type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -9803,40 +9834,9 @@ type IndexQueryQuery = { readonly presentations: { readonly nodes: ReadonlyArray
       )> }
     )> } };
 
-type Unnamed_1_QueryVariables = Exact<{ [key: string]: never; }>;
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type Unnamed_1_Query = { readonly currentBuildDate: Maybe<Pick<CurrentBuildDate, 'currentDate'>> };
-
-type Unnamed_2_QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type Unnamed_2_Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'author' | 'image' | 'favicon'>> }> };
-
-type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpFixed_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpFixed_withWebpFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFixed_withWebp_tracedSVGFragment = Pick<ImageSharpFixed, 'tracedSVG' | 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFixed_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet'>;
-
-type GatsbyImageSharpFixed_withWebp_noBase64Fragment = Pick<ImageSharpFixed, 'width' | 'height' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp'>;
-
-type GatsbyImageSharpFluidFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluidLimitPresentationSizeFragment = { maxHeight: ImageSharpFluid['presentationHeight'], maxWidth: ImageSharpFluid['presentationWidth'] };
-
-type GatsbyImageSharpFluid_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluid_withWebpFragment = Pick<ImageSharpFluid, 'base64' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 'tracedSVG' | 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
-
-type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 }
