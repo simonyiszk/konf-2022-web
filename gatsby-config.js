@@ -1,6 +1,6 @@
 const dotenv = require("dotenv");
 
-// dotenv.config({ path: "./.env.development.local" });
+dotenv.config({ path: "./.env.development.local" });
 dotenv.config({ path: "./.env.local" });
 
 const siteMetadata = {
