@@ -21,10 +21,16 @@
 	outline: none;
 
 	& > p::after {
-		@apply border-t-2 border-yellow-200 rounded-full block;
+		@apply border-t-2 border-primary-200 rounded-full block;
 		content: "";
 		width: var(--after-w);
 		margin-top: 0;
 		will-change: width;
+	}
+}
+
+.active {
+	& > p::after {
+		width: 100%;
 	}
 }

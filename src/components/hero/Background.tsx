@@ -25,6 +25,11 @@ export function Background({ count, setCount }: BackgroundProps) {
 	);
 	// const rotate = useTransform(scrollY, [0, (height ?? 600) * 1], [0, -90]);
 	const opacity = useTransform(scrollY, [0, (height ?? 600) * 1.1], [1.5, 0.2]);
+	const filter = useTransform(
+		scrollY,
+		[300, (height ?? 600) * 1.1],
+		[`blur(${0}px)`, `blur(${56}px)`],
+	);
 
 	return (
 		<div
@@ -40,6 +45,7 @@ export function Background({ count, setCount }: BackgroundProps) {
 					opacity,
 					/* rotate, */
 					willChange: "transform, opacity",
+					filter,
 				}}
 			>
 				<div className={clsx(styles.earth)}>
