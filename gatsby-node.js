@@ -8,14 +8,6 @@
 
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
-exports.onCreateWebpackConfig = ({ actions }) => {
-	actions.setWebpackConfig({
-		resolve: {
-			plugins: [new TsconfigPathsPlugin()],
-		},
-	});
-};
-
 exports.createPages = async ({ /* graphql, */ actions }) => {
 	const { createRedirect } = actions;
 	createRedirect({
@@ -44,4 +36,28 @@ exports.createPages = async ({ /* graphql, */ actions }) => {
 		isPermanent: true,
 	});
 	// Create pages here
+};
+
+exports.createSchemaCustomization = ({ actions }) => {
+	const { createTypes } = actions;
+	const typeDefs = `
+    type ContentfulPresentation implements Node {
+      videoLink: String
+    }
+		type ContentfulBreak implements Node {
+      startDate: String
+			endDate: String
+			room: String
+			text: String
+    }
+  `;
+	createTypes(typeDefs);
+};
+
+exports.onCreateWebpackConfig = ({ actions }) => {
+	actions.setWebpackConfig({
+		resolve: {
+			plugins: [new TsconfigPathsPlugin()],
+		},
+	});
 };
