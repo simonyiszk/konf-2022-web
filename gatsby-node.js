@@ -44,12 +44,6 @@ exports.createSchemaCustomization = ({ actions }) => {
     type ContentfulPresentation implements Node {
       videoLink: String
     }
-		type ContentfulBreak implements Node {
-      startDate: String
-			endDate: String
-			room: String
-			text: String
-    }
   `;
 	createTypes(typeDefs);
 };
