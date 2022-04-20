@@ -37,12 +37,10 @@ export function Navbar() {
 
 	const variants = {
 		initial: {
-			"--after-w": "-5%",
-			rotation: 0.001,
+			"--after-w": "0%",
 		},
 		hover: {
 			"--after-w": "100%",
-			rotation: 0.001,
 		},
 	};
 
@@ -93,6 +91,7 @@ export function Navbar() {
 									to={href}
 									role="link"
 									tabIndex={i}
+									activeClassName={clsx(styles.active)}
 									className={clsx(
 										styles.navlink,
 										"inline-block p-2 w-full text-xl font-normal hover:text-primary-200 lowercase cursor-pointer sm:px-5 sm:text-2xl",
