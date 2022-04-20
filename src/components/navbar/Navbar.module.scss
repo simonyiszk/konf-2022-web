@@ -12,8 +12,13 @@
 
 	& > div {
 		@apply m-2 sm:m-4 rounded-lg;
-		background-color: rgba(255, 255, 255, 0.2);
-		backdrop-filter: blur(10px);
+		background-color: rgba(31, 41, 55, 1);
+		@supports (
+			(-webkit-backdrop-filter: blur(8px)) or (backdrop-filter: blur(8px))
+		) {
+			background-color: rgba(255, 255, 255, 0.2);
+			backdrop-filter: blur(8px);
+		}
 	}
 }
 
