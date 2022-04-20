@@ -90,25 +90,25 @@ export const query = graphql`
 				}
 			}
 		}
-		breaks: allContentfulBreak {
-			nodes {
-				startDate
-				endDate
-				room
-				text {
-					childMdx {
-						body
-					}
-				}
-				sys {
-					contentType {
-						sys {
-							id
-						}
-					}
-				}
-			}
-		}
+		# breaks: allContentfulBreak {
+		# 	nodes {
+		# 		startDate
+		# 		endDate
+		# 		room
+		# 		text {
+		# 			childMdx {
+		# 				body
+		# 			}
+		# 		}
+		# 		sys {
+		# 			contentType {
+		# 				sys {
+		# 					id
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# }
 		main: contentfulParagraph(name: { eq: "Main" }) {
 			name
 			content {
