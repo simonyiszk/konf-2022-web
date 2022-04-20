@@ -22,7 +22,7 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 
 	const { width } = useWindowDimensions();
 
-	const combined = [...breaks?.nodes, ...presentations.nodes];
+	const combined = [...breaks.nodes, ...presentations.nodes];
 	combined.sort(orderEntriesByDate);
 
 	const refs = combined.map(() => createRef<HTMLDivElement>());
