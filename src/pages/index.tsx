@@ -7,6 +7,7 @@ import { CMSParagraph } from "@/components/cmsParagraph/CMSParagraph";
 import { Contacts } from "@/components/contacts/Contacts";
 import { Hero } from "@/components/hero/Hero";
 import { Layout } from "@/components/Layout";
+import { Navbar } from "@/components/navbar/Navbar";
 import { Presentations } from "@/components/presentations/Presentations";
 import { Seo } from "@/components/Seo";
 import { SponsorSection } from "@/components/sponsors/SponsorSection";
@@ -43,7 +44,10 @@ export default function IndexPage({ data }: IndexProps) {
 	return (
 		<Layout>
 			<Seo title="2022.04.27." />
+
 			<Hero />
+
+			<Navbar />
 
 			<Presentations presentations={presentations} breaks={breaks} />
 
