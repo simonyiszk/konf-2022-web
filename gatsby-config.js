@@ -21,6 +21,12 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-typegen`,
 			options: {
+				emitSchema: {
+					"src/@types/__generated__/gatsby-schema.graphql": true,
+				},
+				emitPluginDocuments: {
+					"src/@types/__generated__/gatsby-plugin-documents.graphql": true,
+				},
 				outputPath: `src/@types/__generated__/gatsby-types.d.ts`,
 			},
 		},

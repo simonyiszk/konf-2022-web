@@ -5,6 +5,7 @@ import type { ReactImageGalleryItem } from "react-image-gallery";
 import { CMSGallery } from "@/components/cmsGallery/CMSGallery";
 import { CMSParagraph } from "@/components/cmsParagraph/CMSParagraph";
 import { Contacts } from "@/components/contacts/Contacts";
+import { Footer } from "@/components/footer/Footer";
 import { Hero } from "@/components/hero/Hero";
 import { Layout } from "@/components/Layout";
 import { Navbar } from "@/components/navbar/Navbar";
@@ -49,15 +50,14 @@ export default function IndexPage({ data }: IndexProps) {
 
 			<Navbar />
 
-			<Presentations presentations={presentations} breaks={breaks} />
-
 			<CMSParagraph content={main} />
-
 			<CMSGallery images={images} />
 
-			<Contacts organizers={organizers.nodes} />
+			<Presentations presentations={presentations} breaks={breaks} />
 
+			<Contacts organizers={organizers.nodes} />
 			<SponsorSection gold={gold} silver={silver} bronze={bronze} />
+			<Footer />
 		</Layout>
 	);
 }
@@ -144,10 +144,10 @@ export const query = graphql`
 				gatsbyImageData
 				svg {
 					content # SVG content optimized with SVGO
-					originalContent # Original SVG content
-					dataURI # Optimized SVG as compact dataURI
-					absolutePath
-					relativePath
+					# originalContent # Original SVG content
+					# dataURI # Optimized SVG as compact dataURI
+					# absolutePath
+					# relativePath
 				}
 			}
 		}
@@ -167,10 +167,10 @@ export const query = graphql`
 					gatsbyImageData
 					svg {
 						content # SVG content optimized with SVGO
-						originalContent # Original SVG content
-						dataURI # Optimized SVG as compact dataURI
-						absolutePath
-						relativePath
+						# originalContent # Original SVG content
+						# dataURI # Optimized SVG as compact dataURI
+						# absolutePath
+						# relativePath
 					}
 				}
 			}
@@ -191,10 +191,10 @@ export const query = graphql`
 					gatsbyImageData
 					svg {
 						content # SVG content optimized with SVGO
-						originalContent # Original SVG content
-						dataURI # Optimized SVG as compact dataURI
-						absolutePath
-						relativePath
+						# originalContent # Original SVG content
+						# dataURI # Optimized SVG as compact dataURI
+						# absolutePath
+						# relativePath
 					}
 				}
 			}

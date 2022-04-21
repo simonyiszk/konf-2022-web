@@ -182,25 +182,25 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 						}
 						return null;
 					})}
-					<div className="grid grid-cols-2 col-span-2 justify-items-center w-full">
+					{/* <div className="grid grid-cols-2 col-span-2 justify-items-center w-full">
 						<div className="z-10 p-1 -mb-4 w-16 text-lg font-semibold text-center text-gray-900 bg-[#f07e46] rounded-md sm:col-span-2">
 							19:00
 						</div>
 						<div className="z-10 p-1 -mb-4 w-16 text-lg font-semibold text-center text-gray-900 bg-[#f07e46] rounded-md sm:hidden">
 							19:00
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</div>
-			<div>
+			{/* <div>
 				<h3 className="mb-8 text-2xl font-semibold text-center">
 					Eredményhirdetés
-				</h3>
-				{/* <div className="mb-10 text-lg text-center">
+				</h3> */}
+			{/* <div className="mb-10 text-lg text-center">
 					<p>Az előadások idén online lesznek közvetítve.</p>
 					<p>A platformot a Regisztráció gombra kattintva lehet elérni.</p>
 				</div> */}
-			</div>
+			{/* </div> */}
 		</section>
 	);
 }

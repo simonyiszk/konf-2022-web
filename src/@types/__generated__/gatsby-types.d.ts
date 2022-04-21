@@ -781,12 +781,12 @@ type ContentfulPresentation = ContentfulReference & ContentfulEntry & Node & {
   readonly id: Scalars['ID'];
   readonly node_locale: Scalars['String'];
   readonly videoLink: Maybe<Scalars['String']>;
+  readonly endDate: Maybe<Scalars['Date']>;
   readonly room: Maybe<Scalars['String']>;
   readonly title: Maybe<Scalars['String']>;
   readonly name: Maybe<Scalars['String']>;
   readonly profession: Maybe<Scalars['String']>;
   readonly startDate: Maybe<Scalars['Date']>;
-  readonly endDate: Maybe<Scalars['Date']>;
   readonly image: Maybe<ContentfulAsset>;
   readonly description: Maybe<contentfulPresentationDescriptionTextNode>;
   readonly spaceId: Maybe<Scalars['String']>;
@@ -804,14 +804,6 @@ type ContentfulPresentation = ContentfulReference & ContentfulEntry & Node & {
 
 
 type ContentfulPresentation_startDateArgs = {
-  formatString: Maybe<Scalars['String']>;
-  fromNow: Maybe<Scalars['Boolean']>;
-  difference: Maybe<Scalars['String']>;
-  locale: Maybe<Scalars['String']>;
-};
-
-
-type ContentfulPresentation_endDateArgs = {
   formatString: Maybe<Scalars['String']>;
   fromNow: Maybe<Scalars['Boolean']>;
   difference: Maybe<Scalars['String']>;
@@ -905,8 +897,8 @@ type ContentfulBreak_updatedAtArgs = {
 
 type ContentfulBreakSys = {
   readonly type: Maybe<Scalars['String']>;
-  readonly revision: Maybe<Scalars['Int']>;
   readonly contentType: Maybe<ContentfulBreakSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
 };
 
 type ContentfulBreakSysContentType = {
@@ -1439,7 +1431,7 @@ type StaticImage = Node & {
   readonly name: Maybe<Scalars['String']>;
   readonly absolutePath: Maybe<Scalars['String']>;
   readonly relativeDirectory: Maybe<Scalars['String']>;
-  readonly dev: Maybe<Scalars['Int']>;
+  readonly dev: Maybe<Scalars['Float']>;
   readonly mode: Maybe<Scalars['Int']>;
   readonly nlink: Maybe<Scalars['Int']>;
   readonly uid: Maybe<Scalars['Int']>;
@@ -1943,12 +1935,12 @@ type Query_contentfulPresentationArgs = {
   id: Maybe<StringQueryOperatorInput>;
   node_locale: Maybe<StringQueryOperatorInput>;
   videoLink: Maybe<StringQueryOperatorInput>;
+  endDate: Maybe<DateQueryOperatorInput>;
   room: Maybe<StringQueryOperatorInput>;
   title: Maybe<StringQueryOperatorInput>;
   name: Maybe<StringQueryOperatorInput>;
   profession: Maybe<StringQueryOperatorInput>;
   startDate: Maybe<DateQueryOperatorInput>;
-  endDate: Maybe<DateQueryOperatorInput>;
   image: Maybe<ContentfulAssetFilterInput>;
   description: Maybe<contentfulPresentationDescriptionTextNodeFilterInput>;
   spaceId: Maybe<StringQueryOperatorInput>;
@@ -2197,7 +2189,7 @@ type Query_staticImageArgs = {
   name: Maybe<StringQueryOperatorInput>;
   absolutePath: Maybe<StringQueryOperatorInput>;
   relativeDirectory: Maybe<StringQueryOperatorInput>;
-  dev: Maybe<IntQueryOperatorInput>;
+  dev: Maybe<FloatQueryOperatorInput>;
   mode: Maybe<IntQueryOperatorInput>;
   nlink: Maybe<IntQueryOperatorInput>;
   uid: Maybe<IntQueryOperatorInput>;
@@ -6285,12 +6277,12 @@ type ContentfulPresentationFieldsEnum =
   | 'id'
   | 'node_locale'
   | 'videoLink'
+  | 'endDate'
   | 'room'
   | 'title'
   | 'name'
   | 'profession'
   | 'startDate'
-  | 'endDate'
   | 'image.contentful_id'
   | 'image.id'
   | 'image.gatsbyImageData'
@@ -6976,12 +6968,12 @@ type ContentfulPresentationFilterInput = {
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly node_locale: Maybe<StringQueryOperatorInput>;
   readonly videoLink: Maybe<StringQueryOperatorInput>;
+  readonly endDate: Maybe<DateQueryOperatorInput>;
   readonly room: Maybe<StringQueryOperatorInput>;
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly profession: Maybe<StringQueryOperatorInput>;
   readonly startDate: Maybe<DateQueryOperatorInput>;
-  readonly endDate: Maybe<DateQueryOperatorInput>;
   readonly image: Maybe<ContentfulAssetFilterInput>;
   readonly description: Maybe<contentfulPresentationDescriptionTextNodeFilterInput>;
   readonly spaceId: Maybe<StringQueryOperatorInput>;
@@ -7019,8 +7011,8 @@ type contentfulBreakTextTextNodeSysFilterInput = {
 
 type ContentfulBreakSysFilterInput = {
   readonly type: Maybe<StringQueryOperatorInput>;
-  readonly revision: Maybe<IntQueryOperatorInput>;
   readonly contentType: Maybe<ContentfulBreakSysContentTypeFilterInput>;
+  readonly revision: Maybe<IntQueryOperatorInput>;
 };
 
 type ContentfulBreakSysContentTypeFilterInput = {
@@ -7253,10 +7245,10 @@ type ContentfulBreakFieldsEnum =
   | 'createdAt'
   | 'updatedAt'
   | 'sys.type'
-  | 'sys.revision'
   | 'sys.contentType.sys.type'
   | 'sys.contentType.sys.linkType'
   | 'sys.contentType.sys.id'
+  | 'sys.revision'
   | 'childrenContentfulBreakTextTextNode'
   | 'childrenContentfulBreakTextTextNode.id'
   | 'childrenContentfulBreakTextTextNode.parent.id'
@@ -10132,7 +10124,7 @@ type StaticImageFilterInput = {
   readonly name: Maybe<StringQueryOperatorInput>;
   readonly absolutePath: Maybe<StringQueryOperatorInput>;
   readonly relativeDirectory: Maybe<StringQueryOperatorInput>;
-  readonly dev: Maybe<IntQueryOperatorInput>;
+  readonly dev: Maybe<FloatQueryOperatorInput>;
   readonly mode: Maybe<IntQueryOperatorInput>;
   readonly nlink: Maybe<IntQueryOperatorInput>;
   readonly uid: Maybe<IntQueryOperatorInput>;
@@ -10175,31 +10167,26 @@ type IndexQueryQuery = { readonly presentations: { readonly nodes: ReadonlyArray
     Pick<ContentfulSponsorLogo, 'name' | 'link' | 'sponsorshipGrade'>
     & { readonly image: Maybe<(
       Pick<ContentfulAsset, 'gatsbyImageData'>
-      & { readonly file: Maybe<Pick<ContentfulAssetFile, 'contentType' | 'url'>>, readonly svg: Maybe<Pick<InlineSvg, 'content' | 'originalContent' | 'dataURI' | 'absolutePath' | 'relativePath'>> }
+      & { readonly file: Maybe<Pick<ContentfulAssetFile, 'contentType' | 'url'>>, readonly svg: Maybe<Pick<InlineSvg, 'content'>> }
     )> }
   )>, readonly silver: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulSponsorLogo, 'name' | 'link' | 'sponsorshipGrade'>
       & { readonly image: Maybe<(
         Pick<ContentfulAsset, 'gatsbyImageData'>
-        & { readonly file: Maybe<Pick<ContentfulAssetFile, 'contentType' | 'url'>>, readonly svg: Maybe<Pick<InlineSvg, 'content' | 'originalContent' | 'dataURI' | 'absolutePath' | 'relativePath'>> }
+        & { readonly file: Maybe<Pick<ContentfulAssetFile, 'contentType' | 'url'>>, readonly svg: Maybe<Pick<InlineSvg, 'content'>> }
       )> }
     )> }, readonly bronze: { readonly nodes: ReadonlyArray<(
       Pick<ContentfulSponsorLogo, 'name' | 'link' | 'sponsorshipGrade'>
       & { readonly image: Maybe<(
         Pick<ContentfulAsset, 'gatsbyImageData'>
-        & { readonly file: Maybe<Pick<ContentfulAssetFile, 'contentType' | 'url'>>, readonly svg: Maybe<Pick<InlineSvg, 'content' | 'originalContent' | 'dataURI' | 'absolutePath' | 'relativePath'>> }
+        & { readonly file: Maybe<Pick<ContentfulAssetFile, 'contentType' | 'url'>>, readonly svg: Maybe<Pick<InlineSvg, 'content'>> }
       )> }
     )> } };
 
-type staticCProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879QueryVariables = Exact<{ [key: string]: never; }>;
+type FooterQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type staticCProjectsProgrammingwebkonf2022WebsrccomponentsfooterFooterTsx1552981879Query = { readonly currentBuildDate: Maybe<Pick<CurrentBuildDate, 'currentDate'>> };
-
-type staticCProjectsProgrammingwebkonf2022WebsrccomponentsSeoTsx943528760QueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type staticCProjectsProgrammingwebkonf2022WebsrccomponentsSeoTsx943528760Query = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'author' | 'image' | 'favicon'>> }> };
+type FooterQueryQuery = { readonly currentBuildDate: Maybe<Pick<CurrentBuildDate, 'currentDate'>> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -10226,6 +10213,11 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type SeoQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SeoQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'author' | 'image' | 'favicon'>> }> };
 
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

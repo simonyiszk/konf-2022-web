@@ -32,7 +32,7 @@ export function Organizer({ name, title, email, image }: OrganizerProps) {
 			<h4 className="text-sm font-bold tracking-wider uppercase">{title}</h4>
 			<a
 				href={`mailto:${email}`}
-				className="text-[#F07E46] underline decoration-[#F07E46] decoration-dashed underline-offset-2 hover:underline-offset-4"
+				className="text-[#F07E46] underline decoration-[#F07E46] decoration-dashed underline-offset-4 hover:underline-offset-2"
 			>
 				{email}
 			</a>

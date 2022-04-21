@@ -39,7 +39,12 @@ function breakCard(
 					>
 						{stamp(startDateObj)}
 					</span>
-					<div className={styles.container}>
+					<div
+						className={clsx(
+							"prose prose-orange dark:prose-invert",
+							styles.container,
+						)}
+					>
 						<div
 							className={clsx(
 								styles.content,
@@ -62,12 +67,13 @@ function breakCard(
 					)}
 					ref={ref}
 				>
-					<div className="flex flex-col items-center sm:col-span-2">
+					<div className={clsx("flex flex-col items-center sm:col-span-2 ")}>
 						<div className="p-1 mb-4 w-16 text-lg font-semibold text-center text-gray-900 bg-[#f07e46] rounded-md">
 							{stamp(startDateObj)}
 						</div>
 						<div
 							className={clsx(
+								"prose prose-orange dark:prose-invert",
 								styles.content,
 								styles.underlinedH3,
 								"font-semibold text-center",
@@ -76,12 +82,13 @@ function breakCard(
 							<MDXRenderer>{children}</MDXRenderer>
 						</div>
 					</div>
-					<div className="flex flex-col items-center sm:hidden">
+					<div className={clsx("flex flex-col items-center sm:hidden")}>
 						<div className="p-1 mb-4 w-16 text-lg font-semibold text-center text-gray-900 bg-[#f07e46] rounded-md">
 							{stamp(startDateObj)}
 						</div>
 						<div
 							className={clsx(
+								"prose prose-orange dark:prose-invert",
 								styles.content,
 								styles.underlinedH3,
 								"font-semibold text-center",

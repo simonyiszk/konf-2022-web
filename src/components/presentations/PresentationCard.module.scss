@@ -41,12 +41,18 @@
 .content {
 	@apply col-span-2 mt-4;
 	font-size: 15px;
+	& p {
+		// @apply line-clamp-6;
+		hyphens: auto;
+	}
 }
 
 .underlinedH3 {
 	& h3 {
+		@apply w-fit mx-auto;
+		@apply text-2xl;
 		&::after {
-			@apply border-t-2 border-yellow-300 rounded-full block w-full;
+			@apply border-t-2 border-yellow-200 rounded-full block w-full;
 			content: "";
 			margin-top: 0;
 		}

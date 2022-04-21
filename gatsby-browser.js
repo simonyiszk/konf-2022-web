@@ -9,10 +9,11 @@ import "./src/styles/utilities.css";
 import { MDXProvider } from "@mdx-js/react";
 import * as React from "react";
 
-import { Br } from "./src/components/customText/CustomText";
+import { A, Br } from "./src/components/customText/CustomText";
 
 const components = {
 	br: Br,
+	a: A,
 };
 
 export const wrapRootElement = ({ element }) => (

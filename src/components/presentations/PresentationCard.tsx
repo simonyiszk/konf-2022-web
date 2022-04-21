@@ -50,7 +50,14 @@ function presentationCard(
 	const ytId = parseYoutubeIdFromLink(videoLink ?? "");
 
 	return (
-		<motion.figure className={clsx(styles.card, className)} ref={ref}>
+		<motion.figure
+			className={clsx(
+				"prose prose-orange dark:prose-invert",
+				styles.card,
+				className,
+			)}
+			ref={ref}
+		>
 			<span
 				className={clsx(
 					"hidden absolute top-0 p-1 text-lg font-semibold text-center text-gray-900 bg-[#f07e46] rounded-md sm:inline-block",
@@ -62,7 +69,7 @@ function presentationCard(
 			>
 				{stamp(startDateObj)}
 			</span>
-			<div className={styles.container}>
+			<div className={clsx(styles.container)}>
 				<div className={styles.imageContainer}>
 					<GatsbyImage
 						image={imageData}
