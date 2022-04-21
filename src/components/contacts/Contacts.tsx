@@ -8,7 +8,7 @@ type ContactsProps = {
 
 export function Contacts({ organizers }: ContactsProps) {
 	return (
-		<section className="flex flex-col items-center" id="kapcsolat">
+		<section className="flex flex-col items-center mt-8" id="kapcsolat">
 			<h2 className="mb-10 text-4xl font-semibold">Kapcsolat</h2>
 			<div className="flex flex-wrap justify-evenly items-center w-full">
 				{organizers.map((organizer) => {

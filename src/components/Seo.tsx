@@ -17,9 +17,9 @@ export type SeoProps = {
 };
 
 export function Seo({ description, lang = "hu", meta = [], title }: SeoProps) {
-	const { site }: GatsbyTypes.Query = useStaticQuery(
+	const { site } = useStaticQuery<GatsbyTypes.SeoQueryQuery>(
 		graphql`
-			query {
+			query SeoQuery {
 				site {
 					siteMetadata {
 						siteUrl

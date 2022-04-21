@@ -21,9 +21,9 @@ export function Background({ count, setCount }: BackgroundProps) {
 	const translateY = useTransform(
 		scrollY,
 		[0, (height ?? 600) * 1],
-		[0, (height ?? 600) * -0.8],
+		[0, (height ?? 600) * -1.8],
 	);
-	// const rotate = useTransform(scrollY, [0, (height ?? 600) * 1], [0, -90]);
+	const rotate = useTransform(scrollY, [0, (height ?? 600) * 1], [0, -90]);
 	const opacity = useTransform(scrollY, [0, (height ?? 600) * 1.1], [1.5, 0.2]);
 	const filter = useTransform(
 		scrollY,
@@ -38,12 +38,12 @@ export function Background({ count, setCount }: BackgroundProps) {
 			style={{ userSelect: "none" }}
 		>
 			<motion.div
-				className="relative w-full h-[200vh] origin-[bottom_center]"
+				className={clsx(styles.pivot, "relative w-full h-[200vh]")}
 				style={{
 					scale,
 					translateY,
 					opacity,
-					/* rotate, */
+					rotate,
 					willChange: "transform, opacity",
 					filter,
 				}}

@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import * as React from "react";
 
@@ -12,7 +13,10 @@ export function CMSParagraph({ content }: CMSParagraphProps) {
 		return null;
 	}
 	return (
-		<section className={styles.section} id={content?.name}>
+		<section
+			className={clsx("prose prose-orange dark:prose-invert", styles.section)}
+			id={content?.name}
+		>
 			<MDXRenderer>{content.content.childMdx.body}</MDXRenderer>
 		</section>
 	);

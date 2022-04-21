@@ -1,7 +1,6 @@
-const aspectRatio = require("@tailwindcss/aspect-ratio");
-
 module.exports = {
 	content: ["./src/**/*.{js,jsx,ts,tsx,md,mdx,scss}"],
+	darkMode: "class",
 	theme: {
 		extend: {
 			colors: {
@@ -15,5 +14,9 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [aspectRatio],
+	plugins: [
+		require("@tailwindcss/aspect-ratio"),
+		require("@tailwindcss/line-clamp"),
+		require("@tailwindcss/typography"),
+	],
 };
