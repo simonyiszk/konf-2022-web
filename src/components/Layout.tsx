@@ -4,12 +4,12 @@ import { Footer } from "@/components/footer/Footer";
 
 export function Layout({ children }: { children: React.ReactNode }) {
 	return (
-		<div className="flex flex-col justify-between min-h-screen">
+		<div className="dark flex flex-col justify-between min-h-screen">
 			{/* <Navbar /> */}
 
-			<main>{children}</main>
+			<main className="dark">{children}</main>
 
-			<Footer />
+			{/* <Footer /> */}
 		</div>
 	);
 }

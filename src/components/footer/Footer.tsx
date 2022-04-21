@@ -14,17 +14,15 @@ import Vercel from "@/assets/svg/Vercel.inline.svg";
 import VIK from "@/assets/svg/VIK.inline.svg";
 
 export function Footer() {
-	const data: { currentBuildDate: GatsbyTypes.CurrentBuildDate } =
-		useStaticQuery(graphql`
-			query {
+	const { currentBuildDate } =
+		useStaticQuery<GatsbyTypes.FooterQueryQuery>(graphql`
+			query FooterQuery {
 				currentBuildDate {
 					currentDate
 				}
 			}
 		`);
-	const buildDate = new Date(
-		Date.parse(data.currentBuildDate.currentDate ?? ""),
-	);
+	const buildDate = new Date(Date.parse(currentBuildDate?.currentDate ?? ""));
 	const buildDateString = new Intl.DateTimeFormat("hu-HU", {
 		month: "2-digit",
 		day: "2-digit",

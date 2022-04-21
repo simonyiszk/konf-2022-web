@@ -6,10 +6,16 @@
 	}
 	h4 {
 		@apply text-2xl mb-4 mt-4;
-		text-indent: 4rem;
+		// text-indent: 2rem;
+		// @screen sm {
+		// 	text-indent: 4rem;
+		// }
 	}
 	p {
 		@apply mb-4;
-		text-indent: 4rem;
+		// text-indent: 2rem;
+		// @screen sm {
+		// 	text-indent: 4rem;
+		// }
 	}
 }

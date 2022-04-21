@@ -43,6 +43,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 	const typeDefs = `
     type ContentfulPresentation implements Node {
       videoLink: String
+			endDate: Date
     }
   `;
 	createTypes(typeDefs);
