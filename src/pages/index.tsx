@@ -12,6 +12,7 @@ import { Navbar } from "@/components/navbar/Navbar";
 import { Presentations } from "@/components/presentations/Presentations";
 import { Seo } from "@/components/Seo";
 import { SponsorSection } from "@/components/sponsors/SponsorSection";
+import { Stars } from "@/components/stars/Stars";
 
 type IndexProps = {
 	data: {
@@ -50,6 +51,8 @@ export default function IndexPage({ data }: IndexProps) {
 
 			<Navbar />
 
+			<Stars />
+
 			<CMSParagraph content={main} />
 			<CMSGallery images={images} />
 
@@ -57,6 +60,7 @@ export default function IndexPage({ data }: IndexProps) {
 
 			<Contacts organizers={organizers.nodes} />
 			<SponsorSection gold={gold} silver={silver} bronze={bronze} />
+
 			<Footer />
 		</Layout>
 	);

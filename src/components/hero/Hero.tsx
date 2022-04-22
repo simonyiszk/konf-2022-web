@@ -38,7 +38,7 @@ export function Hero() {
 					<motion.div
 						className={clsx(
 							styles.heroContainer,
-							"flex z-20 flex-col justify-center items-center mx-auto w-fit h-screen font-dongle font-bold text-primary",
+							"flex z-40 flex-col justify-center items-center mx-auto w-fit h-screen font-dongle font-bold text-primary",
 						)}
 						style={{ color }}
 					>
@@ -151,7 +151,7 @@ export function Hero() {
 						</div>
 						<div className="flex relative justify-center font-sans">
 							<motion.a
-								className="relative p-4 mt-8 w-fit text-xl font-bold text-white bg-[#f07e46] rounded-lg hover:rounded-2xl active:rounded-full transition-all lg:text-2xl"
+								className="relative z-40 p-4 mt-8 w-fit text-xl font-bold text-white bg-[#f07e46] rounded-lg hover:rounded-2xl active:rounded-full transition-all lg:text-2xl"
 								href="https://xixsimonyikonf.eventbrite.com/"
 								style={{ willChange: "top, opacity" }}
 								animate={{ opacity: 1, top: 0 }}
