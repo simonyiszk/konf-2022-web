@@ -1,9 +1,18 @@
 @keyframes animStar {
 	from {
-		transform: translateY(-2000px);
+		transform: translate3d(0, -2000px, 0);
 	}
 	to {
-		transform: translateY(0px);
+		transform: translate3d(0, 0px, 0);
+	}
+}
+
+.sky {
+	@media screen and (min-width: 1921px) {
+		@apply scale-150 transform-gpu;
+	}
+	@media screen and (min-width: 2400px) {
+		@apply scale-[2] transform-gpu;
 	}
 }
 
