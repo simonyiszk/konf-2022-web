@@ -1,5 +1,10 @@
 import clsx from "clsx";
-import { motion, useTransform, useViewportScroll } from "framer-motion";
+import {
+	motion,
+	useMotionTemplate,
+	useTransform,
+	useViewportScroll,
+} from "framer-motion";
 import * as React from "react";
 
 import Felhő5 from "@/assets/svg/Felhő5.inline.svg";
@@ -30,7 +35,8 @@ export function Background({ count, setCount }: BackgroundProps) {
 		[300, (height ?? 600) * 1.1],
 		[`blur(${0}px)`, `blur(${56}px)`],
 	);
-
+	// eslint-disable-next-line prefer-const
+	let translate3d = useMotionTemplate`translate3d(0, ${translateY}, 0) rotate(${rotate}) skewX(0) skewY(0) scaleX(${scale}) scaleY(${scale})`;
 	return (
 		<div
 			aria-hidden
@@ -38,14 +44,18 @@ export function Background({ count, setCount }: BackgroundProps) {
 			style={{ userSelect: "none" }}
 		>
 			<motion.div
-				className={clsx(styles.pivot, "relative w-full h-[200vh]")}
+				className={clsx(
+					styles.pivot,
+					"relative w-full h-[200vh] transform-gpu",
+				)}
 				style={{
-					scale,
-					translateY,
+					// scale,
+					// translateY,
+					// rotate,
+					transform: translate3d,
 					opacity,
-					rotate,
-					willChange: "transform, opacity",
 					filter,
+					willChange: "transform, opacity, filter",
 				}}
 			>
 				<div className={clsx(styles.earth)}>
