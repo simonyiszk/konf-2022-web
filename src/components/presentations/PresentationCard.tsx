@@ -13,7 +13,7 @@ import * as styles from "./PresentationCard.module.scss";
 
 type PresentationCardProps = {
 	isLeft: boolean;
-	children: string & React.ReactNode;
+	children?: string & React.ReactNode;
 } & Omit<React.HTMLProps<HTMLDivElement>, "children"> &
 	Omit<GatsbyTypes.ContentfulPresentation, "children">;
 

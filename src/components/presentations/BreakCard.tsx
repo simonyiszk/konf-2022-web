@@ -9,7 +9,7 @@ import * as styles from "./PresentationCard.module.scss";
 
 type BreakCardProps = {
 	isLeft: boolean;
-	children: string & React.ReactNode;
+	children?: string & React.ReactNode;
 } & Omit<React.HTMLProps<HTMLDivElement>, "children"> &
 	Omit<GatsbyTypes.ContentfulBreak, "children">;
 
@@ -52,7 +52,7 @@ function breakCard(
 								isLeft ? "text-yellow-200" : "text-blue-200",
 							)}
 						>
-							<MDXRenderer>{children}</MDXRenderer>
+							{children && <MDXRenderer>{children}</MDXRenderer>}
 						</div>
 						<h5 className="col-span-2 -mt-3 mb-4 font-bold text-center text-white">
 							{stamp(startDateObj)}-{stamp(endDateObj)}
@@ -79,7 +79,7 @@ function breakCard(
 								"font-semibold text-center",
 							)}
 						>
-							<MDXRenderer>{children}</MDXRenderer>
+							{children && <MDXRenderer>{children}</MDXRenderer>}
 						</div>
 					</div>
 					<div className={clsx("flex flex-col items-center sm:hidden")}>
@@ -94,7 +94,7 @@ function breakCard(
 								"font-semibold text-center",
 							)}
 						>
-							<MDXRenderer>{children}</MDXRenderer>
+							{children && <MDXRenderer>{children}</MDXRenderer>}
 						</div>
 					</div>
 				</motion.figure>
