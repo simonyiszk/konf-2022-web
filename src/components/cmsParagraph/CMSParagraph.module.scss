@@ -1,5 +1,19 @@
 .section {
-	@apply container mx-auto px-4 mb-16 mt-8 max-w-[120ch] sm:px-8 md:px-16 lg:px-32;
+	@apply container px-3 mb-16 mt-8 mx-auto;
+
+	& > div {
+		@apply rounded-xl px-3 sm:px-8 md:px-16 lg:px-32 mx-auto;
+		@supports (
+			(-webkit-backdrop-filter: blur(8px)) or (backdrop-filter: blur(8px))
+		) {
+			background-color: rgba(255, 255, 255, 0.07);
+			backdrop-filter: blur(3px);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+		}
+		& * {
+			hyphens: auto;
+		}
+	}
 
 	h3 {
 		@apply text-center text-3xl mb-8 mt-8;
@@ -17,5 +31,8 @@
 		// @screen sm {
 		// 	text-indent: 4rem;
 		// }
+	}
+	a {
+		hyphens: none;
 	}
 }
