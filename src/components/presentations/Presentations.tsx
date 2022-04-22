@@ -147,7 +147,6 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 					{combined.map((entry, i) => {
 						if (entry.sys?.contentType?.sys?.id === "presentation") {
 							const local = entry as GatsbyTypes.ContentfulPresentation;
-							if (local.title?.includes("test")) return null;
 
 							return (
 								<PresentationCard
