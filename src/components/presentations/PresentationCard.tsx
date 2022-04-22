@@ -47,6 +47,8 @@ function presentationCard(
 		endDateObj.setMinutes(startDateObj.getMinutes() + 30);
 	}
 
+	console.log(title);
+
 	const ytId = parseYoutubeIdFromLink(videoLink ?? "");
 
 	return (
@@ -106,7 +108,7 @@ function presentationCard(
 					</div>
 				)}
 				<div className={styles.content}>
-					<MDXRenderer>{children}</MDXRenderer>
+					{children && <MDXRenderer>{children}</MDXRenderer>}
 				</div>
 			</div>
 		</motion.figure>
