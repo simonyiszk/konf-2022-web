@@ -159,7 +159,7 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 									)}
 									ref={refs[i]}
 								>
-									{local.description?.childMdx?.body ?? " "}
+									{local.description?.childMdx?.body}
 								</PresentationCard>
 							);
 						}
@@ -176,7 +176,7 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 									)}
 									ref={refs[i]}
 								>
-									{local.text?.childMdx?.body ?? " "}
+									{local.text?.childMdx?.body}
 								</BreakCard>
 							);
 						}
