@@ -31,7 +31,7 @@
 }
 
 .image {
-	@apply rounded-full w-52 h-52;
+	@apply rounded-full w-52 h-52 sm:w-44 sm:h-44 lg:w-52 lg:h-52;
 }
 
 .imageContainer {
@@ -41,13 +41,13 @@
 	}
 
 	width: fit-content;
-	max-width: 208px;
+	//max-width: 208px;
 	height: fit-content;
-	max-height: 208px;
+	//max-height: 208px;
 }
 
 .content {
-	@apply col-span-2 mt-4;
+	@apply col-span-2;
 	font-size: 15px;
 	& p {
 		// @apply line-clamp-6;
