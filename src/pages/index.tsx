@@ -8,6 +8,7 @@ import { Contacts } from "@/components/contacts/Contacts";
 import { Footer } from "@/components/footer/Footer";
 import { Hero } from "@/components/hero/Hero";
 import { Layout } from "@/components/Layout";
+import { Location } from "@/components/location/Location";
 import { Navbar } from "@/components/navbar/Navbar";
 import { Presentations } from "@/components/presentations/Presentations";
 import { Seo } from "@/components/Seo";
@@ -59,6 +60,7 @@ export default function IndexPage({ data }: IndexProps) {
 			<Presentations presentations={presentations} breaks={breaks} />
 
 			<Contacts organizers={organizers.nodes} />
+			<Location />
 			<SponsorSection gold={gold} silver={silver} bronze={bronze} />
 
 			<Footer />
