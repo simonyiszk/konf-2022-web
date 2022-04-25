@@ -51,11 +51,7 @@ function presentationCard(
 
 	return (
 		<motion.figure
-			className={clsx(
-				"prose prose-orange dark:prose-invert",
-				styles.card,
-				className,
-			)}
+			className={clsx("prose prose-invert", styles.card, className)}
 			ref={ref}
 		>
 			<span
