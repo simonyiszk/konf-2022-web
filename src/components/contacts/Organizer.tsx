@@ -20,11 +20,12 @@ export function Organizer({ name, title, email, image }: OrganizerProps) {
 	return (
 		<div className="flex flex-col items-center px-10 mb-10 space-y-3 text-primary-200">
 			<div className="rounded-full">
-				<div className="block p-2 w-56 h-56 bg-primary-200 rounded-full">
+				<div className="block overflow-hidden p-2 w-56 h-56 bg-primary-200 rounded-full border-separate">
 					<GatsbyImage
 						image={imageData}
 						alt={`${name} arcképe`}
 						className="rounded-full"
+						imgClassName="rounded-full"
 					/>
 				</div>
 			</div>

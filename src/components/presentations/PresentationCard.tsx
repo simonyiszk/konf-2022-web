@@ -70,10 +70,17 @@ function presentationCard(
 				{stamp(startDateObj)}
 			</span>
 			<div className={clsx(styles.container)}>
-				<div className={styles.imageContainer}>
+				<div
+					className={clsx(
+						styles.imageContainer,
+						"p-2 rounded-full border-separate",
+						isLeft ? "bg-yellow-200" : "bg-blue-200",
+					)}
+				>
 					<GatsbyImage
 						image={imageData}
 						className={styles.image}
+						imgClassName="rounded-full"
 						alt={name ?? ""}
 					/>
 				</div>
@@ -81,7 +88,7 @@ function presentationCard(
 				<figcaption className="col-span-2 sm:col-span-1">
 					<h3
 						className={clsx(
-							"mb-3 text-xl font-bold",
+							"mt-0 mb-3 text-xl font-bold",
 							isLeft === true ? "text-yellow-200" : "text-blue-200",
 						)}
 					>
