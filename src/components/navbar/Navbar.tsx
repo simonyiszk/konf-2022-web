@@ -9,7 +9,7 @@ import navbarContent from "@/data/navbar.json";
 
 import * as styles from "./Navbar.module.scss";
 
-export function Navbar() {
+export function Navbar({ style }: { style?: React.CSSProperties }) {
 	const [isNavbarOpen, setNavbarOpen] = React.useState(false);
 	const [isNavbarVisible, setNavbarVisible] = React.useState(false);
 	const { scrollY } = useViewportScroll();
@@ -53,6 +53,7 @@ export function Navbar() {
 			// 		? "rgba(39, 51, 67, 1)"
 			// 		: "rgba(39, 51, 67, 0)",
 			// }}
+			style={style}
 			id="header"
 		>
 			<div className="flex relative flex-wrap justify-start items-center px-2 mx-auto w-full sm:px-8">
@@ -64,9 +65,14 @@ export function Navbar() {
 						role="button"
 						tabIndex={0}
 					>
-						<span className="inline-block relative my-4 mx-2 w-20 h-auto">
-							<StaticImage src="../../assets/images/logo.png" alt="XIX Logó" />
-						</span>
+						<Link to="/" role="link" tabIndex={0}>
+							<span className="inline-block relative my-4 mx-2 w-20 h-auto">
+								<StaticImage
+									src="../../assets/images/logo.png"
+									alt="XIX Logó"
+								/>
+							</span>
+						</Link>
 					</span>
 
 					<button
