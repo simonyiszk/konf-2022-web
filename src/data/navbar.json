@@ -1,6 +1,7 @@
 {
 	"links": [
 		{ "href": "/#eloadasok", "label": "Előadások" },
-		{ "href": "/#kapcsolat", "label": "Kapcsolat" }
+		{ "href": "/#kapcsolat", "label": "Kapcsolat" },
+		{ "href": "/simonyi", "label": "Rólunk" }
 	]
 }
