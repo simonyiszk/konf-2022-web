@@ -45,6 +45,16 @@ exports.createPages = async ({ /* graphql, */ actions }) => {
 		toPath: "https://app.sli.do/event/eqvMDaG7UMpArRY5sioY4W",
 		isPermanent: true,
 	});
+	createRedirect({
+		fromPath: "/ib026",
+		toPath: "https://app.sli.do/event/8s1hR1txt5n3CG7dxdYgQT",
+		isPermanent: true,
+	});
+	createRedirect({
+		fromPath: "/ib028",
+		toPath: "https://app.sli.do/event/eqvMDaG7UMpArRY5sioY4W",
+		isPermanent: true,
+	});
 	// Create pages here
 };
 
