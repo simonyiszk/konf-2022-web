@@ -149,7 +149,7 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 							className={(styles.container2, "text-orange-500 underline p-8")}
 						>
 							<a href="/IB028">
-								Kérdezz az IB028-ban lévő előadással kapcsolatban
+								Itt teheted fel a kérdéseidet az IB028 terem előadói számára.
 							</a>
 						</div>
 					</div>
@@ -159,7 +159,7 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 							className={(styles.container2, "text-orange-500 underline p-8")}
 						>
 							<a href="/IB026">
-								Kérdezz az IB026-ban lévő előadással kapcsolatban
+							Itt teheted fel a kérdéseidet az IB026 terem előadói számára.
 							</a>
 						</div>
 					</div>
