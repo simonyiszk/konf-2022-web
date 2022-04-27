@@ -1,3 +1,35 @@
+.card {
+	@apply text-white bg-gray-800 rounded-md relative;
+	@screen sm {
+		@apply max-w-screen-sm;
+	}
+	max-width: 90vw;
+
+	@supports (
+		(-webkit-backdrop-filter: blur(8px)) or (backdrop-filter: blur(8px))
+	) {
+		background-color: rgba(255, 255, 255, 0.07);
+		backdrop-filter: blur(3px);
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+
+	& > span {
+		width: calc((128px / 2));
+	}
+}
+
+.container2 {
+	@apply relative p-3 grid gap-4 items-center;
+	@screen sm {
+		@apply p-8;
+	}
+	@screen lg {
+		@apply p-12;
+	}
+	@apply justify-items-center;
+	grid-template-columns: auto 1fr;
+}
+
 .container {
 	min-width: 190vw;
 	@screen sm {

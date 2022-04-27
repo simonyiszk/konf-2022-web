@@ -921,8 +921,8 @@ type ContentfulParagraph implements ContentfulReference & ContentfulEntry & Node
 
 type ContentfulParagraphSys {
   type: String
-  contentType: ContentfulParagraphSysContentType
   revision: Int
+  contentType: ContentfulParagraphSysContentType
 }
 
 type ContentfulParagraphSysContentType {
@@ -3923,8 +3923,8 @@ input MdxWordCountFilterInput {
 
 input ContentfulParagraphSysFilterInput {
   type: StringQueryOperatorInput
-  contentType: ContentfulParagraphSysContentTypeFilterInput
   revision: IntQueryOperatorInput
+  contentType: ContentfulParagraphSysContentTypeFilterInput
 }
 
 input ContentfulParagraphSysContentTypeFilterInput {
@@ -4128,10 +4128,10 @@ enum ContentfulParagraphFieldsEnum {
   createdAt
   updatedAt
   sys___type
+  sys___revision
   sys___contentType___sys___type
   sys___contentType___sys___linkType
   sys___contentType___sys___id
-  sys___revision
   childrenContentfulParagraphContentTextNode
   childrenContentfulParagraphContentTextNode___id
   childrenContentfulParagraphContentTextNode___parent___id

@@ -131,18 +131,38 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 					<div className={styles.timeline} />
 					<div className={styles.time} />
 
-					{/* <div className={clsx(styles.video, "ml-auto")}>
+					<div className={clsx(styles.video, "ml-auto")}>
 						<YouTube
-							videoId="decGVnT9Rj4"
+							videoId="FpFWqHySuVA"
 							containerClassName="aspect-w-16 aspect-h-9"
 						/>
 					</div>
 					<div className={clsx(styles.video, "mr-auto")}>
 						<YouTube
-							videoId="2I2uirLBb68"
+							videoId="r5El1pUWPfI"
 							containerClassName="aspect-w-16 aspect-h-9"
 						/>
-					</div> */}
+					</div>
+
+					<div className={clsx(styles.card, "ml-auto")}>
+						<div
+							className={(styles.container2, "text-orange-500 underline p-8")}
+						>
+							<a href="/IB028">
+								Kérdezz az IB028-ban lévő előadással kapcsolatban
+							</a>
+						</div>
+					</div>
+
+					<div className={clsx(styles.card, "mr-auto")}>
+						<div
+							className={(styles.container2, "text-orange-500 underline p-8")}
+						>
+							<a href="/IB026">
+								Kérdezz az IB026-ban lévő előadással kapcsolatban
+							</a>
+						</div>
+					</div>
 
 					{combined.map((entry, i) => {
 						if (entry.sys?.contentType?.sys?.id === "presentation") {

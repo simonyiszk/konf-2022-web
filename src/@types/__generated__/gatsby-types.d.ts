@@ -669,8 +669,8 @@ type ContentfulParagraph_updatedAtArgs = {
 
 type ContentfulParagraphSys = {
   readonly type: Maybe<Scalars['String']>;
-  readonly contentType: Maybe<ContentfulParagraphSysContentType>;
   readonly revision: Maybe<Scalars['Int']>;
+  readonly contentType: Maybe<ContentfulParagraphSysContentType>;
 };
 
 type ContentfulParagraphSysContentType = {
@@ -4766,8 +4766,8 @@ type MdxWordCountFilterInput = {
 
 type ContentfulParagraphSysFilterInput = {
   readonly type: Maybe<StringQueryOperatorInput>;
-  readonly contentType: Maybe<ContentfulParagraphSysContentTypeFilterInput>;
   readonly revision: Maybe<IntQueryOperatorInput>;
+  readonly contentType: Maybe<ContentfulParagraphSysContentTypeFilterInput>;
 };
 
 type ContentfulParagraphSysContentTypeFilterInput = {
@@ -4998,10 +4998,10 @@ type ContentfulParagraphFieldsEnum =
   | 'createdAt'
   | 'updatedAt'
   | 'sys.type'
+  | 'sys.revision'
   | 'sys.contentType.sys.type'
   | 'sys.contentType.sys.linkType'
   | 'sys.contentType.sys.id'
-  | 'sys.revision'
   | 'childrenContentfulParagraphContentTextNode'
   | 'childrenContentfulParagraphContentTextNode.id'
   | 'childrenContentfulParagraphContentTextNode.parent.id'
@@ -9761,6 +9761,16 @@ type ContentfulContentTypeSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type SeoQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SeoQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'author' | 'image' | 'favicon'>> }> };
+
+type FooterQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FooterQueryQuery = { readonly currentBuildDate: Maybe<Pick<CurrentBuildDate, 'currentDate'>> };
+
 type IndexQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -9796,11 +9806,6 @@ type IndexQueryQuery = { readonly presentations: { readonly nodes: ReadonlyArray
       )> }
     )> } };
 
-type FooterQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type FooterQueryQuery = { readonly currentBuildDate: Maybe<Pick<CurrentBuildDate, 'currentDate'>> };
-
 type SimonyiQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -9834,11 +9839,6 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type SeoQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SeoQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'author' | 'image' | 'favicon'>> }> };
 
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
