@@ -13,6 +13,9 @@
 	width: 1px;
 	height: 1px;
 	animation: animStar 150s linear infinite;
+	@media (prefers-reduced-motion) {
+		animation: none;
+	}
 	box-shadow: 1744px 122px, 134px 1321px, 92px 859px, 235px 1045px, 366px 912px,
 		491px 942px, 14px 1831px, 582px 476px, 588px 1230px, 1520px 1343px,
 		1671px 203px, 550px 341px, 1491px 549px, 558px 161px, 896px 1823px,
@@ -308,6 +311,9 @@
 	height: 2px;
 	background: transparent;
 	animation: animStar 125s linear infinite;
+	@media (prefers-reduced-motion) {
+		animation: none;
+	}
 	box-shadow: 1907px 1575px, 893px 268px, 1819px 666px, 366px 1985px,
 		1736px 1062px, 1124px 45px, 905px 1674px, 1570px 711px, 255px 1747px,
 		147px 1032px, 865px 1813px, 1721px 1461px, 202px 724px, 1860px 812px,
@@ -405,6 +411,9 @@
 	height: 3px;
 	background: transparent;
 	animation: animStar 100s linear infinite;
+	@media (prefers-reduced-motion) {
+		animation: none;
+	}
 	box-shadow: 1994px 1692px, 961px 1928px, 819px 1320px, 1899px 52px,
 		28px 1937px, 157px 88px, 860px 1909px, 720px 427px, 1319px 1469px,
 		677px 960px, 1265px 1181px, 1176px 1361px, 1957px 753px, 1674px 1355px,

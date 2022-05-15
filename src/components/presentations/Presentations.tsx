@@ -132,36 +132,22 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 					<div className={styles.time} />
 
 					<div className={clsx(styles.video, "ml-auto")}>
+						<h3 className="m-4 text-2xl font-bold text-center">
+							IB028 teljes közvetítés
+						</h3>
 						<YouTube
 							videoId="FpFWqHySuVA"
 							containerClassName="aspect-w-16 aspect-h-9"
 						/>
 					</div>
 					<div className={clsx(styles.video, "mr-auto")}>
+						<h3 className="m-4 text-2xl font-bold text-center">
+							IB026 teljes közvetítés
+						</h3>
 						<YouTube
 							videoId="r5El1pUWPfI"
 							containerClassName="aspect-w-16 aspect-h-9"
 						/>
-					</div>
-
-					<div className={clsx(styles.card, "ml-auto")}>
-						<div
-							className={(styles.container2, "text-orange-500 underline p-8")}
-						>
-							<a href="/IB028">
-								Itt teheted fel a kérdéseidet az IB028 terem előadói számára.
-							</a>
-						</div>
-					</div>
-
-					<div className={clsx(styles.card, "mr-auto")}>
-						<div
-							className={(styles.container2, "text-orange-500 underline p-8")}
-						>
-							<a href="/IB026">
-							Itt teheted fel a kérdéseidet az IB026 terem előadói számára.
-							</a>
-						</div>
 					</div>
 
 					{combined.map((entry, i) => {

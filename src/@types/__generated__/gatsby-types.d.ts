@@ -9761,11 +9761,6 @@ type ContentfulContentTypeSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type SeoQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type SeoQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'author' | 'image' | 'favicon'>> }> };
-
 type FooterQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -9806,13 +9801,10 @@ type IndexQueryQuery = { readonly presentations: { readonly nodes: ReadonlyArray
       )> }
     )> } };
 
-type SimonyiQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type SeoQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type SimonyiQueryQuery = { readonly simonyi: Maybe<(
-    Pick<ContentfulParagraph, 'name'>
-    & { readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
-  )> };
+type SeoQueryQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'siteUrl' | 'title' | 'description' | 'author' | 'image' | 'favicon'>> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -9839,6 +9831,14 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type SimonyiQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type SimonyiQueryQuery = { readonly simonyi: Maybe<(
+    Pick<ContentfulParagraph, 'name'>
+    & { readonly content: Maybe<{ readonly childMdx: Maybe<Pick<Mdx, 'body'>> }> }
+  )> };
 
 type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
