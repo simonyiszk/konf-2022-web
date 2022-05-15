@@ -150,6 +150,26 @@ export function Presentations({ presentations, breaks }: PresentationsProps) {
 						/>
 					</div>
 
+					{/* <div className={clsx(styles.card, "ml-auto")}>
+						<div
+							className={(styles.container2, "text-orange-500 underline p-8")}
+						>
+							<a href="/IB028">
+								Itt teheted fel a kérdéseidet az IB028 terem előadói számára.
+							</a>
+						</div>
+					</div>
+
+					<div className={clsx(styles.card, "mr-auto")}>
+						<div
+							className={(styles.container2, "text-orange-500 underline p-8")}
+						>
+							<a href="/IB026">
+							Itt teheted fel a kérdéseidet az IB026 terem előadói számára.
+							</a>
+						</div>
+					</div> */}
+
 					{combined.map((entry, i) => {
 						if (entry.sys?.contentType?.sys?.id === "presentation") {
 							const local = entry as GatsbyTypes.ContentfulPresentation;
