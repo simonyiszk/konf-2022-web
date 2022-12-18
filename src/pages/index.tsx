@@ -44,6 +44,9 @@ export default function IndexPage({ data }: IndexProps) {
 		gallery?.images?.map((image) => {
 			return { original: image?.url ?? "", thumbnail: image?.url ?? "" };
 		}) ?? [];
+
+	console.log("2022");
+
 	return (
 		<Layout>
 			<Seo title="2022.04.27." />
